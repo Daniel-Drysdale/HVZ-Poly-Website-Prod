@@ -1,0 +1,44 @@
+{
+  "name": "hvz-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "prepreview": "npm run build",
+    "preview": "vite preview --port 5173"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@react-pdf/renderer": "^3.4.4",
+    "babel": "^6.23.0",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "pdfjs-dist": "^4.6.82",
+    "pspdfkit": "^2024.5.2",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.4",
+    "react-dom": "^18.3.1",
+    "react-favicon": "^2.0.7",
+    "react-pdf": "^9.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}

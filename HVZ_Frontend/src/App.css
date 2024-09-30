@@ -1,0 +1,69 @@
+.nav-item {
+  font-weight: bold;
+  color: #000000; /* Adjust the color as needed */
+}
+
+.nav-pills {
+  --bs-link-color: #000000;
+  color: #ffffff;
+}
+
+ul.nav.nav-pills.m-5.row {
+  --bs-nav-pills-link-active-bg: var(--bs-link-color);
+  --bs-nav-link-hover-color: #ffffff;
+}
+
+.overlay-text {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+
+  transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
+  color: white; /* Change color as needed */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add a shadow for better visibility */
+  pointer-events: none; /* Prevent pointer events on text */
+}
+
+.large-text {
+  font-size: 10vw;
+}
+
+.small-text {
+  font-size: 3vw;
+}
+
+.table {
+  background-color: rgb(44, 44, 44);
+}
+
+.center-div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* styles.css */
+.table-success-deep {
+  background-color: #006400; /* Deep Green */
+  color: white !important;
+}
+
+.table-danger-deep {
+  background-color: #8b0000; /* Dark Red */
+  color: white !important;
+}
+
+/* styles.css */
+table.table tbody tr.table-success-deep {
+  background-color: #005600 !important; /* Deep Green */
+  color: white !important; /* Ensure text is readable */
+}
+
+table.table tbody tr.table-danger-deep {
+  background-color: #7e0000 !important; /* Dark Red */
+  color: white !important; /* Ensure text is readable */
+}
+
+.text-table {
+  font-size: 2vw;
+}
