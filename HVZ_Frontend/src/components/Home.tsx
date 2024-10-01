@@ -3,7 +3,10 @@ import H_Rect from "../assets/Human_Rect.png";
 import Z_Rect from "../assets/Zombie_Rect.png";
 
 const Home = () => {
-  const [Data, setData] = useState<any>(0);
+  const [Data, setData] = useState<any>({
+    humans: "...",
+    zombies: "...",
+  });
 
   const BASE_URL = import.meta.env.VITE_BASE_API_URL;
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -12,6 +15,7 @@ const Home = () => {
     const fetch_counter = async () => {
       //Fetchs the counter from the Backend
       try {
+        console.log(Data.humans);
         const response = await fetch(BASE_URL + "/v2/functions/Home_Count", {
           method: "GET",
           headers: {
@@ -37,8 +41,6 @@ const Home = () => {
     fetch_counter();
   }, []);
 
-  const Players = Data;
-
   return (
     <div
       className="row"
@@ -62,7 +64,7 @@ const Home = () => {
           className="overlay-text large-text "
           style={{ top: "11.5vw", left: "19vw" }}
         >
-          {Players.humans}
+          {Data.humans}
         </div>
         <div
           className="overlay-text small-text"
@@ -84,7 +86,7 @@ const Home = () => {
           className="overlay-text large-text"
           style={{ top: "11.5vw", left: "19vw" }}
         >
-          {Players.zombies}
+          {Data.zombies}
         </div>
 
         <div

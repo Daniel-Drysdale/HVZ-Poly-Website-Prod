@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
+import Loading from "../assets/Loading.gif";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 type Player = {
-  id: string;
+  id: number;
   name: string;
   status: number;
-  tags: number;
+  tags: string;
   image: string;
 };
 
 function Players() {
-  const [data, setData] = useState<Player[]>([]);
+  const [data, setData] = useState<Player[]>([
+    {
+      id: 0,
+      name: "Loading...",
+      status: -1,
+      tags: "...",
+      image: "Loading",
+    },
+  ]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 5;
 
   useEffect(() => {
+    setData;
     const fetchPlayerData = async () => {
       try {
         const response = await fetch(
@@ -63,11 +73,13 @@ function Players() {
 
   return (
     <div>
-      <table className="table table-dark  text-center">
+      <table className="table table-dark text-center">
         <thead>
           <tr>
             <th style={{ width: "15vw", marginLeft: "10vw" }}>Player Image</th>
-            <th style={{ width: "400px", top: "10px" }}>Name</th>
+            <th className="" style={{ width: "400px", marginTop: "110px" }}>
+              Name
+            </th>
             <th>Team</th>
             <th>Tags</th>
           </tr>
@@ -79,17 +91,48 @@ function Players() {
               className={player.status === 1 ? "table-success" : "table-danger"}
             >
               <td>
-                <img
-                  src={player.image}
-                  alt={player.name}
-                  style={{ width: "7vw" }}
-                />
+                {player.image !== "Loading" && (
+                  <img
+                    src={player.image}
+                    alt={player.name}
+                    style={{ width: "7vw", height: "6vw" }}
+                  />
+                )}
+                {player.image === "Loading" && (
+                  <img
+                    src={Loading}
+                    alt={player.name}
+                    style={{ width: "7vw", height: "6vw" }}
+                  />
+                )}
               </td>
-              <td className="text-table">{player.name}</td>
-              <td className="text-table">
+              <td
+                className="text-table"
+                style={{
+                  paddingTop: "25px",
+                  paddingBottom: "25px",
+                }}
+              >
+                {player.name}
+              </td>
+              <td
+                className="text-table"
+                style={{
+                  paddingTop: "25px",
+                  paddingBottom: "25px",
+                }}
+              >
                 {player.status > 0 ? "Zombie" : "Human"}
               </td>
-              <td className="text-table">{player.tags}</td>
+              <td
+                className="text-table"
+                style={{
+                  paddingTop: "25px",
+                  paddingBottom: "25px",
+                }}
+              >
+                {player.tags}
+              </td>
             </tr>
           ))}
         </tbody>
