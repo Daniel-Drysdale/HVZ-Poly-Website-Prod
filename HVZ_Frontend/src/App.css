@@ -36,6 +36,10 @@ ul.nav.nav-pills.m-5.row {
   background-color: rgb(44, 44, 44);
 }
 
+.font-type {
+  font-family: monospace;
+}
+
 .center-div {
   max-width: fit-content;
   margin-left: auto;

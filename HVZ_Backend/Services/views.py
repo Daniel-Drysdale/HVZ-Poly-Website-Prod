@@ -26,13 +26,13 @@ class data:
 def test_user(request):
     if (request.method == "GET"):
         
-        api_url = ""
+        api_url = "https://coia96lgnk.sqlite.cloud:8090//v2/weblite/HVZ_POLY/Player_Data"
         headers = {
-                '',  # Replace with your actual API key
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=',  # Replace with your actual API key
             }
-        
-        data = {'id': 45506, "name": 'NICOOOOOOOOOOOOOOOOOOO', 'status': 0, 'image':""}
-        
+    
+        data = {'id': '', "name": '', 'status': 0, 'tags': 0, 'image':""}
+    
         
         post_test = requests.post(api_url, json=data, headers=headers)
         
