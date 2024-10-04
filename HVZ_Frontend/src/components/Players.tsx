@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Loading from "../assets/Loading.gif";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
 
 type Player = {
   id: number;
@@ -29,24 +28,16 @@ function Players() {
     setData;
     const fetchPlayerData = async () => {
       try {
-        const response = await fetch(
-          BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data",
-          {
-            method: "GET",
-            headers: {
-              Authorization:
-                "Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=" +
-                API_KEY,
-            },
-          }
-        );
+        const response = await fetch(BASE_URL + "api/player_list/", {
+          method: "GET",
+        });
 
         if (response.status !== 200) {
           throw new Error("Error in Fetch, Status is " + response.status);
         }
 
         const backendData = await response.json();
-        setData(backendData.data || []);
+        setData(backendData || []);
       } catch (error) {
         console.log(error);
       }

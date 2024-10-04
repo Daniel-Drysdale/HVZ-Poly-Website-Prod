@@ -77,7 +77,7 @@ def player_count(request):
          
          database_response = requests.get(database_url, headers=headers)
          
-         return JsonResponse(database_response.json(), status = database_response.status_codes, safe = False)
+         return JsonResponse(database_response.json(), status = 200, safe = False)
          
          
          

@@ -12,13 +12,8 @@ const Home = () => {
     const fetch_counter = async () => {
       //Fetchs the counter from the Backend
       try {
-        const response = await fetch(BASE_URL + "/v2/functions/Home_Count", {
+        const response = await fetch(BASE_URL + "v2/api/count/", {
           method: "GET",
-          headers: {
-            Authorization:
-              "Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=" +
-              API_KEY,
-          },
         });
 
         if (response.status != 200) {
