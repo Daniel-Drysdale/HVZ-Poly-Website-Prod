@@ -7,13 +7,14 @@ function Links() {
         <header
           style={{
             fontSize: "1.5vw",
-            marginTop: "11vw",
+            marginTop: "120px",
             marginBottom: "2vw",
             color: "white",
           }}
         >
-          QR Code to the Nerf-Tech Discord Here
+          //// QR Code to the Nerf-Tech Discord Here \\\\
         </header>
+
         <div className="center-div">
           <img src={QR_Code} className="" style={{ width: "15vw" }}></img>
         </div>

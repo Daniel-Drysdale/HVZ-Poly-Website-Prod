@@ -7,13 +7,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files.base import ContentFile
 from django.http import JsonResponse
 from dataclasses import dataclass
-from django.db.models import Count, Q
 import sqlitecloud
-from .models import Player
-
+from .env import API_KEY, API_BASE_URL
 
 @dataclass
-class data:
+class player:
     id: int
     name: str
     status: int
@@ -26,9 +24,9 @@ class data:
 def test_user(request):
     if (request.method == "GET"):
         
-        api_url = "https://coia96lgnk.sqlite.cloud:8090//v2/weblite/HVZ_POLY/Player_Data"
+      
         headers = {
-                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=',  # Replace with your actual API key
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY,  # Replace with your actual API key
             }
     
         data = {'id': '', "name": '', 'status': 0, 'tags': 0, 'image':""}
@@ -49,36 +47,37 @@ def test_user(request):
 @csrf_exempt
 def player_list(request):
     if request.method == "GET":
-            api_url = ""
-            headers = {
-                'Authorization': '',  # Replace with your actual API key
+        
+        database_url = API_BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data"
+        headers = {
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
           
             }
-            api_response = requests.get(api_url, headers=headers)
-            api_response.raise_for_status()
+        
+        database_response = requests.get(database_url, headers=headers)
+        print("Database GET request status: ", database_response.status_code)
 
-
-            
-
-            player_data = api_response.json().get("data", [])
+        player_data = database_response.json().get("data", [])
             
             
             
 
-            return HttpResponse(player_data)
+        return JsonResponse(player_data, safe=False)
 
 
 @csrf_exempt
 def player_count(request): 
      if (request.method == "GET"):
-         humans = Player.objects.filter(status=0).count()
-         zombies = Player.objects.filter(status=1).count()
-         print(humans)
-         print(zombies)
+         database_url = API_BASE_URL + "/v2/functions/Home_Count"
          
-         response = {"humans":humans, "zombies":zombies}
+         headers = {
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+          
+            }
          
-         return JsonResponse(response, status=200)
+         database_response = requests.get(database_url, headers=headers)
+         
+         return JsonResponse(database_response.json(), status = database_response.status_codes, safe = False)
          
          
          
@@ -92,27 +91,30 @@ def player_creation(request):
         try:
             data = json.loads(request.body)
 
-            player = Player(
+            player = player(
                 id = data['id'],
                 name=data['name'],
                 status=data['status'],
                 tags=data['tags'],
                 image = data['image'],
             )
+            
+        except:
+            return JsonResponse('"Error trying to match data to player datatype")', status = 400)
+        
+        try:
+             
+            headers = {
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY,
+            }
+            
+            database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data", headers=headers)
+            
+            
 
-            if 'image' in data:
-                image_data = data['image']
-                format, imgstr = image_data.split(';base64,') 
-                ext = format.split('/')[-1]  
-
-                #Decode image and save it to DB
-                image_file = ContentFile(base64.b64decode(imgstr), name=f'{player.id}.{ext}')
-                player.image.save(image_file.name, image_file)  # Save the image file
-                
-            player.save() 
-            return JsonResponse("Player Successfully Created - Data Stored", status = 201)
+            return JsonResponse(status = database_post.status_code)
 
         except:
-            return JsonResponse('Error in Player Creation - Debug if needed', status = 400)
+            return JsonResponse('Error in sending player data to database - Debug if needed', status = database_post.status_code)
 
     return JsonResponse("Invalid Request", status = 405)

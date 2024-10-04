@@ -76,8 +76,15 @@ function Players() {
       <table className="table table-dark text-center">
         <thead>
           <tr>
-            <th style={{ width: "15vw", marginLeft: "10vw" }}>Player Image</th>
-            <th className="" style={{ width: "400px", marginTop: "110px" }}>
+            <th
+              style={{ width: "15vw", marginLeft: "10vw", minWidth: "150px" }}
+            >
+              Player Image
+            </th>
+            <th
+              className=""
+              style={{ minWidth: "200px", width: "25vw", marginTop: "110px" }}
+            >
               Name
             </th>
             <th>Team</th>

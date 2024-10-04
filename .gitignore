@@ -24,7 +24,5 @@ dist-ssr
 *\lib
 *\node_modules
 *.gitattributes
-*\__pycache__
+__pycache__
 *\migrations
-HVZ_Backend/admin/__pycache__/__init__.cpython-39.pyc
-*.pyc

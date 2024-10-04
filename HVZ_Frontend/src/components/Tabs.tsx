@@ -70,8 +70,9 @@ const Tabs: React.FC = () => {
 
   return (
     <>
+      <div className="center-div"></div>
       <ul
-        className="nav nav-pills"
+        className="nav nav-pills "
         style={{
           position: "absolute",
           minWidth: "800px",
@@ -81,14 +82,14 @@ const Tabs: React.FC = () => {
         }}
       >
         <ul
-          className="nav nav-pills m-5 row font-type"
-          style={{ float: "left", marginInline: "5%" }}
+          className="nav nav-pills m-5 row font-type center-divs"
+          style={{ marginInline: "5%" }}
         >
           <li className="nav-item col">
             <button
               className={`nav-link ${activeTab === 0 ? "active" : ""}`}
               onClick={() => handleTabClick(0)}
-              style={{ width: "150px", fontSize: "15px" }}
+              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
             >
               Home
             </button>
@@ -97,7 +98,7 @@ const Tabs: React.FC = () => {
             <button
               className={`nav-link ${activeTab === 1 ? "active" : ""}`}
               onClick={() => handleTabClick(1)}
-              style={{ width: "150px", fontSize: "15px" }}
+              style={{ width: "15vw", fontSize: "15px", minWidth: "95px" }}
             >
               Players
             </button>
@@ -106,7 +107,7 @@ const Tabs: React.FC = () => {
             <button
               className={`nav-link ${activeTab === 2 ? "active" : ""}`}
               onClick={() => handleTabClick(2)}
-              style={{ width: "150px", fontSize: "15px" }}
+              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
             >
               Rules
             </button>
@@ -115,7 +116,7 @@ const Tabs: React.FC = () => {
             <button
               className={`nav-link ${activeTab === 3 ? "active" : ""}`}
               onClick={() => handleTabClick(3)}
-              style={{ width: "150px", fontSize: "15px" }}
+              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
             >
               Links
             </button>
