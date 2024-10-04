@@ -28,7 +28,7 @@ function Players() {
     setData;
     const fetchPlayerData = async () => {
       try {
-        const response = await fetch(BASE_URL + "api/player_list/", {
+        const response = await fetch(BASE_URL + "v2/api/player_list/", {
           method: "GET",
         });
 

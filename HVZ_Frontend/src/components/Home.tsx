@@ -3,10 +3,12 @@ import H_Rect from "../assets/Human_Rect.png";
 import Z_Rect from "../assets/Zombie_Rect.png";
 
 const Home = () => {
-  const [Data, setData] = useState<any>(0);
+  const [Data, setData] = useState<any>({
+    humans: "...",
+    zombies: "...",
+  });
 
   const BASE_URL = import.meta.env.VITE_BASE_API_URL;
-  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     const fetch_counter = async () => {
