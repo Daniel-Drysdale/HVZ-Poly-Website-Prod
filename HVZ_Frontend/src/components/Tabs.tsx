@@ -56,7 +56,7 @@ const Tabs: React.FC = () => {
 
       case 3:
         return (
-          <div>
+          <div style={{ paddingTop: "10vw" }}>
             <Links />
           </div>
         );

@@ -70,4 +70,5 @@ table.table tbody tr.table-danger-deep {
 
 .text-table {
   font-size: 2vw;
+  font-family: monospace;
 }

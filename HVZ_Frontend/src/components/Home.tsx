@@ -32,6 +32,13 @@ const Home = () => {
       }
     };
     fetch_counter();
+
+    const intervalId = setInterval(() => {
+      fetch_counter();
+    }, 120000); // 120000 ms = 2 minutes
+
+    // Clear the interval on component unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   const Players = Data;
