@@ -9,20 +9,13 @@ const Home = () => {
   });
 
   const BASE_URL = import.meta.env.VITE_BASE_API_URL;
-  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     const fetch_counter = async () => {
       //Fetchs the counter from the Backend
       try {
-        console.log(Data.humans);
-        const response = await fetch(BASE_URL + "/v2/functions/Home_Count", {
+        const response = await fetch(BASE_URL + "v2/api/count/", {
           method: "GET",
-          headers: {
-            Authorization:
-              "Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=" +
-              API_KEY,
-          },
         });
 
         if (response.status != 200) {
@@ -39,7 +32,16 @@ const Home = () => {
       }
     };
     fetch_counter();
+
+    const intervalId = setInterval(() => {
+      fetch_counter();
+    }, 120000); // 120000 ms = 2 minutes
+
+    // Clear the interval on component unmount
+    return () => clearInterval(intervalId);
   }, []);
+
+  const Players = Data;
 
   return (
     <div
@@ -64,7 +66,7 @@ const Home = () => {
           className="overlay-text large-text "
           style={{ top: "11.5vw", left: "19vw" }}
         >
-          {Data.humans}
+          {Players.humans}
         </div>
         <div
           className="overlay-text small-text"
@@ -86,7 +88,7 @@ const Home = () => {
           className="overlay-text large-text"
           style={{ top: "11.5vw", left: "19vw" }}
         >
-          {Data.zombies}
+          {Players.zombies}
         </div>
 
         <div

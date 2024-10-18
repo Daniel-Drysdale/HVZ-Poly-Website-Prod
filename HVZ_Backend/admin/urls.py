@@ -20,8 +20,8 @@ from Services import views
 
 urlpatterns = [
     path('/admin/', admin.site.urls),
-    path('test/new_player/', views.test_user),
-    path('api/count/', views.player_count),
-    path('api/player_list/', views.player_list),
-    path('api/player_creation/', views.player_creation),
+    path('v2/api/PageList/', views.paginated_player_list),
+    path('v2/api/count/', views.player_count),
+    path('v2/api/playerlist/', views.player_list),
+    path('v2/api/player_creation/', views.player_creation),
 ]
