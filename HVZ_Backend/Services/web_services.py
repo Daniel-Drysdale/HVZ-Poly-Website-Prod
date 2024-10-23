@@ -43,7 +43,7 @@ def paginated_player_list(request):
     if request.method == "GET":
         page = int(request.GET.get("page", 1))
 
-        edge_function_url = API_BASE_URL + f'/v2/functions/Paginated_Players?page={page}'
+        database_url = API_BASE_URL + f"/v2/functions/players?page={page}"
         
     
         headers = {
@@ -51,19 +51,14 @@ def paginated_player_list(request):
           
           
             }
-        try:
-            database_response = requests.get(edge_function_url, headers=headers)
-            print("Edge function GET request status: ", database_response.status_code)
+        
+        database_response = requests.get(database_url, headers=headers)
             
-            player_data = database_response.json()
+        player_data = database_response.json()
 
-            return JsonResponse(player_data, safe=False)
+        return JsonResponse(player_data, safe=False)
 
-        except requests.exceptions.RequestException as e:
-            return JsonResponse({"error": str(e)}, status=500)
-
-    return JsonResponse({"Invalid Request": 405})
-
+    return JsonResponse({"Invalid Request": database_response.status})
 
 @csrf_exempt
 def player_count(request): 
