@@ -7,6 +7,15 @@ from django.http import JsonResponse
 from dataclasses import dataclass, asdict
 from .env import API_KEY, API_BASE_URL
 
+@dataclass
+class player:
+    id: int
+    name: str
+    status: int
+    tags: int
+    image: str
+    
+
 
 @csrf_exempt
 def player_list(request):
@@ -34,7 +43,7 @@ def paginated_player_list(request):
     if request.method == "GET":
         page = int(request.GET.get("page", 1))
 
-        edge_function_url = f"https://coia96lgnk.sqlite.cloud:8090/v2/functions/players?page={page}"
+        edge_function_url = API_BASE_URL + f'/v2/functions/Paginated_Players?page={page}'
         
     
         headers = {
