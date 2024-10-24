@@ -8,9 +8,8 @@ function App() {
     <>
       <div>
         <Logo />
-        <div className="">
-          <Tabs />
-        </div>
+
+        <Tabs />
       </div>
     </>
   );
