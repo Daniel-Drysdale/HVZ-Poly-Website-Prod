@@ -97,7 +97,7 @@ def cure(request):
         headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/cure", json = post_data , headers=headers)
-        return JsonResponse(database_post, safe = False)
+        return JsonResponse(database_post.status_code, safe = False)
 
 
      
