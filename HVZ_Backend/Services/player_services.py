@@ -2,7 +2,6 @@ import requests
 import json
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.core.files.base import ContentFile
 from django.http import JsonResponse
 from dataclasses import dataclass, asdict
 from .env import API_KEY, API_BASE_URL
@@ -49,6 +48,12 @@ def player_creation(request):
     return JsonResponse({"Invalid Request" : 405})
 
 
+
+
+# ////////////////// All the classes below change player statuses //////////////////
+
+
+
 @csrf_exempt
 def player_infection(request):
     if request.method == "POST":
@@ -58,7 +63,7 @@ def player_infection(request):
         headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/infection", json = post_data , headers=headers)
-        return JsonResponse(database_post.status_code, safe = False)
+        return HttpResponse(database_post)
 
 
      
@@ -71,10 +76,11 @@ def OZ(request):
     if request.method == "POST":
         
         post_data = json.loads(request.body)
+        print(post_data)
            
         headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
             
-        database_post = requests.post(API_BASE_URL + "/v2/functions/infection_oz", json = post_data , headers=headers)
+        database_post = requests.post(API_BASE_URL + "/v2/functions/inf_oz", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
 
 
@@ -91,8 +97,23 @@ def cure(request):
         headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
             
         database_post = requests.post(API_BASE_URL + "v2/functions/cure", json = post_data , headers=headers)
-        return JsonResponse(database_post.status_code, safe = False)
+        return JsonResponse(database_post, safe = False)
 
 
      
+    return JsonResponse({"Invalid Request" : 405})
+
+
+def mod_registration(request):
+    if request.method == "POST":
+        
+        post_data = json.loads(request.body)
+        
+    
+           
+        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+            
+        database_post = requests.post(API_BASE_URL + "v2/functions/mod", json = post_data , headers=headers)
+        return JsonResponse(database_post.status_code, safe = False)
+    
     return JsonResponse({"Invalid Request" : 405})

@@ -11,6 +11,6 @@ urlpatterns = [
     path('v2/api/playerlist/', web_services.player_list),
     path('v2/api/player_creation/', player_services.player_creation),
     path('v2/api/infection/', player_services.player_infection),
-    path('v2/api/infection_oz/', player_services.player_infection),
+    path('v2/api/oz/', player_services.OZ),
     path('v2/api/cure/', player_services.cure),
 ]
