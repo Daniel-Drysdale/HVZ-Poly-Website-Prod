@@ -103,7 +103,7 @@ def cure(request):
      
     return JsonResponse({"Invalid Request" : 405})
 
-
+@csrf_exempt
 def mod(request):
     if request.method == "POST":
         
