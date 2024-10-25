@@ -12,6 +12,7 @@ type Player = {
 };
 
 function Players() {
+  //Acts as a stand-in to show that the list in being loaded
   const loadingData: Player[] = [
     {
       id: 0,
@@ -23,7 +24,8 @@ function Players() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [data, setData] = useState<Player[]>([
+  const [playerList, setPlayerList] = useState<Player[]>([
+    //data defaulted to "loading"
     {
       id: 0,
       name: "Loading...",
@@ -32,16 +34,16 @@ function Players() {
       image: "Loading",
     },
   ]);
-  const itemsPerPage = 5;
-  const [totalItems, setTotalItems] = useState(0);
+  const itemsPerPage = 5; // <-- eventually needs to be changed to be a get param and have a button to change
+  const [totalPlayers, setTotalPlayers] = useState(0);
   let totalPages = 1;
 
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        setData(loadingData);
+        setPlayerList(loadingData); //while grabbing the new data, set to loading
         const response = await fetch(
-          `${BASE_URL}v2/api/PageList/?page=${currentPage}`,
+          `${BASE_URL}v2/api/PageList/?page=${currentPage}`, //fetch data using current page param
           {
             method: "GET",
           }
@@ -52,8 +54,9 @@ function Players() {
         }
 
         const backendData = await response.json();
-        setData(backendData.data || []);
-        setTotalItems(backendData.playerCount || 1);
+
+        setPlayerList(backendData.data || []); //Sets data to be the fetched data, defaults to an empty array
+        setTotalPlayers(backendData.playerCount || 1); //Sets total playercount
       } catch (error) {
         console.log(error);
       }
@@ -61,15 +64,17 @@ function Players() {
     fetchPlayerData();
   }, [currentPage]);
 
-  totalPages = Math.ceil(totalItems / itemsPerPage);
+  totalPages = Math.ceil(totalPlayers / itemsPerPage);
 
   const handleNext = () => {
+    //Handles clicking next on the page buttons below the list
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
 
   const handlePrevious = () => {
+    //Handles clicking prev on the page buttons below the list
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
@@ -91,7 +96,7 @@ function Players() {
           </tr>
         </thead>
         <tbody>
-          {data.map((player) => (
+          {playerList.map((player) => (
             <tr key={player.id} className={Display_Status(player.status)}>
               <td>
                 <img
@@ -135,7 +140,7 @@ function Players() {
         <button
           onClick={handlePrevious}
           disabled={
-            currentPage === 1 || data === loadingData || currentPage === 0
+            currentPage === 1 || playerList === loadingData || currentPage === 0
           }
         >
           Previous
@@ -145,7 +150,7 @@ function Players() {
         >{`Page ${currentPage} of ${totalPages === 0 ? 1 : totalPages}`}</span>
         <button
           onClick={handleNext}
-          disabled={currentPage >= totalPages || data === loadingData}
+          disabled={currentPage >= totalPages || playerList === loadingData}
         >
           Next
         </button>

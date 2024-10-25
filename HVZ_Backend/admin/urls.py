@@ -1,27 +1,16 @@
-"""
-URL configuration for HVZ_Backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from Services import views
+from Services import player_services, web_services
+
+
 
 urlpatterns = [
     path('/admin/', admin.site.urls),
-    path('v2/api/PageList/', views.paginated_player_list),
-    path('v2/api/count/', views.player_count),
-    path('v2/api/playerlist/', views.player_list),
-    path('v2/api/player_creation/', views.player_creation),
+    path('v2/api/PageList/', web_services.paginated_player_list),
+    path('v2/api/count/', web_services.player_count),
+    path('v2/api/playerlist/', web_services.player_list),
+    path('v2/api/player_creation/', player_services.player_creation),
+    path('v2/api/infection/', player_services.player_infection),
+    path('v2/api/oz/', player_services.OZ),
+    path('v2/api/cure/', player_services.cure),
 ]

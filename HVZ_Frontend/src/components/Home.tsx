@@ -12,14 +12,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetch_counter = async () => {
-      //Fetchs the counter from the Backend
+      //Fetchs the human / zombie count from the Backend
       try {
         const response = await fetch(BASE_URL + "v2/api/count/", {
           method: "GET",
         });
 
         if (response.status != 200) {
-          //If the response code isn't 200 (aka, if something bad happend), throw
+          //If the response code isn't 200, throw error
           throw "Error in Fetch, Status is " + response.status;
         }
 
@@ -27,7 +27,6 @@ const Home = () => {
 
         setData(backendData.data);
       } catch (error) {
-        //catches and prints error
         console.log(error);
       }
     };
@@ -35,9 +34,8 @@ const Home = () => {
 
     const intervalId = setInterval(() => {
       fetch_counter();
-    }, 120000); // 120000 ms = 2 minutes
+    }, 120000);
 
-    // Clear the interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 

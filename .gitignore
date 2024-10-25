@@ -26,3 +26,4 @@ dist-ssr
 *.gitattributes
 __pycache__
 *\migrations
+*.pyc

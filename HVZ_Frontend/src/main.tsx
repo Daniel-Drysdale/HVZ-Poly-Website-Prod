@@ -7,7 +7,6 @@ import Header from "./assets/Header.png";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <img
-      className=""
       src={Header}
       style={{
         width: "100%",
