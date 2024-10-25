@@ -104,7 +104,7 @@ def cure(request):
     return JsonResponse({"Invalid Request" : 405})
 
 
-def mod_registration(request):
+def mod(request):
     if request.method == "POST":
         
         post_data = json.loads(request.body)
