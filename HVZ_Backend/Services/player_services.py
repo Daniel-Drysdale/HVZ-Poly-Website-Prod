@@ -15,7 +15,7 @@ class player:
     image: str
 
 @csrf_exempt
-def player_creation(request):
+def player_creation(request): #creates a player after taking in a request from a mod
     if request.method == "POST":
         try:
             incoming_data = json.loads(request.body)
@@ -72,7 +72,7 @@ def player_infection(request):
 
 
 @csrf_exempt
-def OZ(request):
+def OZ(request): #Makes a player an OZ
     if request.method == "POST":
         
         post_data = json.loads(request.body)
@@ -89,7 +89,7 @@ def OZ(request):
 
 
 @csrf_exempt
-def cure(request):
+def cure(request): #cures a player (i.e. makes any player into a human)
     if request.method == "POST":
         
         post_data = json.loads(request.body)
@@ -104,7 +104,7 @@ def cure(request):
     return JsonResponse({"Invalid Request" : 405})
 
 @csrf_exempt
-def mod(request):
+def mod(request): #Makes a player a Mod on the frontend / database
     if request.method == "POST":
         
         post_data = json.loads(request.body)

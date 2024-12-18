@@ -77,3 +77,22 @@ def player_count(request):
          
          
      return JsonResponse("Invalid Request", status = 400)
+ 
+ 
+@csrf_exempt
+def mvz(request): 
+     if (request.method == "GET"):
+         database_url = API_BASE_URL + "/v2/functions/mvz"
+         
+         headers = {
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+          
+            }
+         
+         database_response = requests.get(database_url, headers=headers)
+          
+         return JsonResponse(database_response.json(), status = 200, safe = False)
+         
+         
+         
+     return JsonResponse("Invalid Request", status = 400)
