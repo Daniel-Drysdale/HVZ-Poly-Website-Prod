@@ -15,7 +15,7 @@ function Links() {
           <div className="font-type">
             <header
               style={{
-                fontSize: "1.2vw",
+                fontSize: "1.5vw",
                 marginBottom: "2vw",
                 color: "white",
               }}
@@ -69,11 +69,11 @@ function Links() {
         </header>
         <div className="center-div">
           <iframe
-            width="100%"
-            height="100%"
+            width="50%"
+            height="50%"
             allowFullScreen
             src="https://www.youtube.com/embed/tQpYQ9PuQZI"
-            style={{ minWidth: "100%", minHeight: "100%" }}
+            style={{ minWidth: "400px", width: "100%", height: "100%" }}
           ></iframe>
         </div>
       </div>
