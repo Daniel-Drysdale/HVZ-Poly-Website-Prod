@@ -7,11 +7,11 @@ function Logo() {
         src={Circle_logo}
         className=""
         style={{
-          minWidth: "1vw",
-          maxWidth: "80px",
+          minWidth: ".5%",
+          maxWidth: "75px",
           position: "absolute",
-          marginLeft: "10px",
-          top: "0vw",
+          marginLeft: "2px",
+          top: "5px",
           marginTop: "10px",
         }}
       ></img>

@@ -8,7 +8,7 @@
   color: #ffffff;
 }
 
-ul.nav.nav-pills.m-5.row {
+ul.nav.nav-pills {
   --bs-nav-pills-link-active-bg: var(--bs-link-color);
   --bs-nav-link-hover-color: #ffffff;
 }

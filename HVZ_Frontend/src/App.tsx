@@ -6,9 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <>
-      <div>
-        <Logo />
-
+      <div style={{ width: "100%" }}>
+        <div style={{ width: "10%" }}>
+          <Logo />
+        </div>
         <Tabs />
       </div>
     </>

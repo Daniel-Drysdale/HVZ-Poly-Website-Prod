@@ -81,16 +81,16 @@ function Players() {
   };
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <table className="table table-dark text-center">
         <thead>
           <tr>
             <th
-              style={{ width: "15vw", marginLeft: "10vw", minWidth: "150px" }}
+              style={{ width: "1rem", marginLeft: "10vw", minWidth: "130px" }}
             >
               Player Image
             </th>
-            <th style={{ minWidth: "200px", width: "25vw" }}>Name</th>
+            <th style={{ minWidth: "50px", width: "" }}>Name</th>
             <th>Team</th>
             <th>Tags</th>
           </tr>
@@ -102,7 +102,7 @@ function Players() {
                 <img
                   src={player.image !== "Loading" ? player.image : Loading}
                   alt={player.name}
-                  style={{ width: "7vw", height: "6vw" }}
+                  style={{ width: "65%", height: "65%" }}
                 />
               </td>
               <td
