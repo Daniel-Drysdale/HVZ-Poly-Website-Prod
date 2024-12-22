@@ -4,19 +4,29 @@ const Rules = () => {
   return (
     <div
       style={{
-        display: "fixed",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         width: "100%",
-        height: "100rem",
-        top: "100px",
+        height: "100vh",
+        padding: "20px",
       }}
     >
-      <embed
-        src={Rules_Slides}
+      <object
+        data={Rules_Slides}
         type="application/pdf"
         width="100%"
         height="100%"
         style={{ border: "none" }}
-      />
+      >
+        <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
+          Cannot load rule slides on mobile
+        </p>
+
+        <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
+          Please use a Desktop to view the Rules
+        </p>
+      </object>
     </div>
   );
 };

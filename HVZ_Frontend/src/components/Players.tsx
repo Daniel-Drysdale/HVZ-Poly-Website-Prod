@@ -24,6 +24,8 @@ function Players() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [ItemsPerPage, setItemsPerPage] = useState<number>(10);
   const [playerList, setPlayerList] = useState<Player[]>([
     //data defaulted to "loading"
     {
@@ -34,7 +36,7 @@ function Players() {
       image: "Loading",
     },
   ]);
-  const itemsPerPage = 5; // <-- eventually needs to be changed to be a get param and have a button to change
+
   const [totalPlayers, setTotalPlayers] = useState(0);
   let totalPages = 1;
 
@@ -43,7 +45,7 @@ function Players() {
       try {
         setPlayerList(loadingData); //while grabbing the new data, set to loading
         const response = await fetch(
-          `${BASE_URL}v2/api/PageList/?page=${currentPage}`, //fetch data using current page param
+          `${BASE_URL}v2/api/PageList/?pageSize=${ItemsPerPage}&?page=${currentPage}`, //fetch data using query params
           {
             method: "GET",
           }
@@ -62,9 +64,9 @@ function Players() {
       }
     };
     fetchPlayerData();
-  }, [currentPage]);
+  }, [currentPage, ItemsPerPage]);
 
-  totalPages = Math.ceil(totalPlayers / itemsPerPage);
+  totalPages = Math.ceil(totalPlayers / ItemsPerPage);
 
   const handleNext = () => {
     //Handles clicking next on the page buttons below the list
@@ -78,6 +80,11 @@ function Players() {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
+  };
+
+  const handleItemsPerPage = (itemNum: number) => {
+    setItemsPerPage(itemNum);
+    console.log("Set items per page to be equal to" + ItemsPerPage);
   };
 
   return (
@@ -136,29 +143,64 @@ function Players() {
           ))}
         </tbody>
       </table>
-      <div className="pagination-controls center-div">
-        <button
-          onClick={handlePrevious}
-          disabled={
-            currentPage === 1 || playerList === loadingData || currentPage === 0
-          }
+      <div className=" center-div">
+        <ul
+          style={{
+            display: "flex",
+            listStyleType: "none",
+            paddingBottom: "1vw",
+          }}
         >
-          Previous
-        </button>
-        <span
-          style={{ color: "white", marginLeft: "10px", marginRight: "10px" }}
-        >{`Page ${currentPage} of ${totalPages === 0 ? 1 : totalPages}`}</span>
-        <button
-          onClick={handleNext}
-          disabled={currentPage >= totalPages || playerList === loadingData}
-        >
-          Next
-        </button>
+          <li>
+            <div className="col mx-5 pagination-controls center-div">
+              <button
+                onClick={handlePrevious}
+                disabled={
+                  currentPage === 1 ||
+                  playerList === loadingData ||
+                  currentPage === 0
+                }
+              >
+                Previous
+              </button>
+              <span
+                style={{
+                  color: "white",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+              >{`Page ${currentPage} of ${
+                totalPages === 0 ? 1 : totalPages
+              }`}</span>
+              <button
+                onClick={handleNext}
+                disabled={
+                  currentPage >= totalPages || playerList === loadingData
+                }
+              >
+                Next
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <button onClick={() => handleItemsPerPage(5)}>5</button>
+            </div>
+            <div>
+              <button onClick={() => handleItemsPerPage(10)}>10</button>
+            </div>
+            <div>
+              <button onClick={() => handleItemsPerPage(15)}>15</button>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   );
 }
 
+//Displays Differing colors based on player status
 function Display_Status(status: Number) {
   switch (status) {
     case 0:
@@ -174,6 +216,7 @@ function Display_Status(status: Number) {
   }
 }
 
+//Displays Differing Status names based on player status
 function Status_Text(status: Number) {
   switch (status) {
     case 0:

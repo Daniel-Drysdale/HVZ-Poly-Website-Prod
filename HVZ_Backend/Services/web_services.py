@@ -42,8 +42,9 @@ def player_list(request):
 def paginated_player_list(request):
     if request.method == "GET":
         page = int(request.GET.get("page", 1))
+        itemsPerPage = int(request.GET.get("pageSize", 5))
 
-        database_url = API_BASE_URL + f"/v2/functions/players?page={page}"
+        database_url = API_BASE_URL + f"/v2/functions/players?page={page}&pageSize={itemsPerPage}"
         
     
         headers = {

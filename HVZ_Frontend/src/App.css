@@ -18,10 +18,10 @@ ul.nav.nav-pills {
   margin-right: auto;
   position: absolute;
 
-  transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
-  color: white; /* Change color as needed */
+  transform: translate(-50%, -50%);
+  color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add a shadow for better visibility */
-  pointer-events: none; /* Prevent pointer events on text */
+  pointer-events: none;
 }
 
 .large-text {
@@ -46,29 +46,27 @@ ul.nav.nav-pills {
   margin-right: auto;
 }
 
-/* styles.css */
 .table-success-deep {
-  background-color: #006400; /* Deep Green */
+  background-color: #006400;
   color: white !important;
 }
 
 .table-danger-deep {
-  background-color: #8b0000; /* Dark Red */
+  background-color: #8b0000;
   color: white !important;
 }
 
-/* styles.css */
 table.table tbody tr.table-success-deep {
-  background-color: #005600 !important; /* Deep Green */
-  color: white !important; /* Ensure text is readable */
+  background-color: #005600 !important;
+  color: white !important;
 }
 
 table.table tbody tr.table-danger-deep {
-  background-color: #7e0000 !important; /* Dark Red */
-  color: white !important; /* Ensure text is readable */
+  background-color: #7e0000 !important;
+  color: white !important;
 }
 
 .text-table {
-  font-size: 2vw;
+  font-size: 2vh;
   font-family: monospace;
 }

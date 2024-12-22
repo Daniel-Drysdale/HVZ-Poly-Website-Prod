@@ -1,4 +1,7 @@
 *.log
+.vercel
+.__pycache___
+*.pyc
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -24,6 +27,8 @@ dist-ssr
 *\lib
 *\node_modules
 *.gitattributes
-__pycache__
+*\__pycache__
 *\migrations
 *.pyc
+*\__init__
+/HVZ_Backend/admin/__pycache__

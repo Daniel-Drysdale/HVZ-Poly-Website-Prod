@@ -79,7 +79,7 @@ const Home = () => {
             />
             <div
               className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "20vw" }}
+              style={{ top: "11.5vw", left: "19.9vw" }}
             >
               {Players.humans}
             </div>
@@ -100,7 +100,7 @@ const Home = () => {
             />
             <div
               className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "20.9vw" }}
+              style={{ top: "11.5vw", left: "20.0vw" }}
             >
               {Players.zombies}
             </div>
@@ -132,9 +132,7 @@ const Home = () => {
           margin: "auto",
         }}
       >
-        <thead>
-          <tr></tr>
-        </thead>
+        <thead></thead>
         <tbody>
           {MVZ_List.map((player, index) => (
             <tr key={index}>
