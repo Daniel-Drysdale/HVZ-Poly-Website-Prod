@@ -40,7 +40,7 @@ const Home = () => {
         const MvZData = await responseMVZ.json();
 
         setData(backendData.data);
-        SetMVZ(MvZData.data.players);
+        SetMVZ(MvZData.players);
       } catch (error) {
         console.log(error);
       }
@@ -79,7 +79,7 @@ const Home = () => {
             />
             <div
               className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "19.9vw" }}
+              style={{ top: "11.5vw", left: "20vw" }}
             >
               {Players.humans}
             </div>
@@ -100,7 +100,7 @@ const Home = () => {
             />
             <div
               className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "20.0vw" }}
+              style={{ top: "11.5vw", left: "20.9vw" }}
             >
               {Players.zombies}
             </div>
@@ -132,7 +132,9 @@ const Home = () => {
           margin: "auto",
         }}
       >
-        <thead></thead>
+        <thead>
+          <tr></tr>
+        </thead>
         <tbody>
           {MVZ_List.map((player, index) => (
             <tr key={index}>
