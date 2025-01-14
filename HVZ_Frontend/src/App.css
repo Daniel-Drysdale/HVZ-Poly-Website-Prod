@@ -70,3 +70,14 @@ table.table tbody tr.table-danger-deep {
   font-size: 2vh;
   font-family: monospace;
 }
+
+.white {
+  color: white;
+}
+
+.itemsButton {
+  border: none;
+  padding: 0;
+  background: none;
+  margin: 0%;
+}

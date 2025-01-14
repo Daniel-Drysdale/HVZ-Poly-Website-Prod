@@ -13,7 +13,7 @@ function Links() {
           }}
         >
           <div className="col">
-            <li className="" style={{}}>
+            <li className="center-div" style={{}}>
               <div className="font-type">
                 <header
                   style={{
@@ -36,7 +36,7 @@ function Links() {
             </li>
           </div>
           <div className="col">
-            <li>
+            <li className="center-div">
               <div className="font-type">
                 <header
                   style={{
@@ -64,7 +64,7 @@ function Links() {
           <header
             className="center-div"
             style={{
-              fontSize: "1.5vh",
+              fontSize: "1.5vw",
               marginBottom: "2vw",
               color: "white",
             }}
@@ -76,8 +76,8 @@ function Links() {
               width="50%"
               height="50%"
               allowFullScreen
-              src="https://www.youtube.com/embed/tQpYQ9PuQZI"
-              style={{ minWidth: "400px", width: "100%", height: "40vh" }}
+              src="https://www.youtube.com/embed/UGppN5ZWcwU"
+              style={{ minWidth: "500px", width: "100%", height: "40vh" }}
             ></iframe>
           </div>
         </div>

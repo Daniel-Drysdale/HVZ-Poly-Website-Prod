@@ -13,6 +13,7 @@ class player:
     status: int
     tags: int
     image: str
+    named_tags: list
 
 @csrf_exempt
 def player_creation(request): #creates a player after taking in a request from a mod
@@ -27,10 +28,12 @@ def player_creation(request): #creates a player after taking in a request from a
                 name = incoming_data['name'],
                 status = incoming_data['status'],
                 tags = incoming_data['tags'],
-                image = incoming_data['image']
+                image = incoming_data['image'],
+                named_tags = incoming_data['named_tags']
             )
             
             post_data = asdict(player_data)
+            print(post_data)
             
         except:
             return JsonResponse({"Error" : "Error trying to match data to player datatype", "status" : 400})
@@ -113,6 +116,20 @@ def mod(request): #Makes a player a Mod on the frontend / database
         headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/mod", json = post_data , headers=headers)
+        return JsonResponse(database_post.status_code, safe = False)
+    
+    return JsonResponse({"Invalid Request" : 405})
+
+@csrf_exempt
+def wipe(request): #wipes the data from the database - use after every hvz
+    if request.method == "POST":
+        
+        post_data = json.loads(request.body)
+        
+           
+        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+            
+        database_post = requests.post(API_BASE_URL + "/v2/functions/wipe", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
     
     return JsonResponse({"Invalid Request" : 405})

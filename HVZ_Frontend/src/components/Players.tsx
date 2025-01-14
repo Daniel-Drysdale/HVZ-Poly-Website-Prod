@@ -84,7 +84,6 @@ function Players() {
 
   const handleItemsPerPage = (itemNum: number) => {
     setItemsPerPage(itemNum);
-    console.log("Set items per page to be equal to" + ItemsPerPage);
   };
 
   return (
@@ -144,57 +143,77 @@ function Players() {
         </tbody>
       </table>
       <div className=" center-div">
-        <ul
-          style={{
-            display: "flex",
-            listStyleType: "none",
-            paddingBottom: "1vw",
-          }}
-        >
-          <li>
-            <div className="col mx-5 pagination-controls center-div">
-              <button
-                onClick={handlePrevious}
-                disabled={
-                  currentPage === 1 ||
-                  playerList === loadingData ||
-                  currentPage === 0
-                }
-              >
-                Previous
-              </button>
-              <span
-                style={{
-                  color: "white",
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                }}
-              >{`Page ${currentPage} of ${
-                totalPages === 0 ? 1 : totalPages
-              }`}</span>
-              <button
-                onClick={handleNext}
-                disabled={
-                  currentPage >= totalPages || playerList === loadingData
-                }
-              >
-                Next
-              </button>
-            </div>
-          </li>
+        <div className="col mx-5 pagination-controls center-div">
+          <button
+            onClick={handlePrevious}
+            disabled={
+              currentPage === 1 ||
+              playerList === loadingData ||
+              currentPage === 0
+            }
+          >
+            Prev
+          </button>
+          <span
+            style={{
+              color: "white",
+              marginLeft: "10px",
+              marginRight: "10px",
+            }}
+          >{`Page ${currentPage} of ${
+            totalPages === 0 ? 1 : totalPages
+          }`}</span>
+          <button
+            onClick={handleNext}
+            disabled={currentPage >= totalPages || playerList === loadingData}
+          >
+            Next
+          </button>
+        </div>
 
-          <li>
-            <div>
-              <button onClick={() => handleItemsPerPage(5)}>5</button>
+        <div className="center-div">
+          <center>
+            <div className="center-div">
+              <p
+                className=" white col"
+                style={{
+                  minWidth: "150px",
+                  paddingTop: "10px",
+                  marginLeft: "10px",
+                  marginRight: "5px",
+                }}
+              >
+                Items Per Page:
+              </p>
             </div>
-            <div>
-              <button onClick={() => handleItemsPerPage(10)}>10</button>
-            </div>
-            <div>
-              <button onClick={() => handleItemsPerPage(15)}>15</button>
-            </div>
-          </li>
-        </ul>
+          </center>
+          <div className="center-div">
+            <button
+              className="col "
+              onClick={() => handleItemsPerPage(5)}
+              disabled={ItemsPerPage == 5}
+              style={{ height: "10%" }}
+            >
+              5
+            </button>
+            <button
+              className="col"
+              onClick={() => handleItemsPerPage(10)}
+              disabled={ItemsPerPage == 10}
+              style={{ height: "10%" }}
+            >
+              10
+            </button>
+            <button
+              className="col"
+              onClick={() => handleItemsPerPage(15)}
+              disabled={ItemsPerPage == 15}
+              style={{ height: "10%" }}
+            >
+              15
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

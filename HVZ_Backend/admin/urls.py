@@ -15,4 +15,5 @@ urlpatterns = [
     path('v2/api/oz/', player_services.OZ),
     path('v2/api/cure/', player_services.cure),
     path('v2/api/mod/', player_services.mod),
+    path('v2/api/wipe/', player_services.wipe)
 ]
