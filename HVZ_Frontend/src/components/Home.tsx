@@ -35,7 +35,6 @@ const Home = () => {
           throw new Error("Error in Fetch, Status is " + responseMVZ.status);
         }
 
-        // Parse JSON response data
         const backendData = await responsePCount.json();
         const MvZData = await responseMVZ.json();
 

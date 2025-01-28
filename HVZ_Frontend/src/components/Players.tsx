@@ -45,7 +45,7 @@ function Players() {
       try {
         setPlayerList(loadingData); //while grabbing the new data, set to loading
         const response = await fetch(
-          `${BASE_URL}v2/api/PageList/?pageSize=${ItemsPerPage}&?page=${currentPage}`, //fetch data using query params
+          `${BASE_URL}v2/api/PageList/?pageSize=${ItemsPerPage}&page=${currentPage}`, //fetch data using query params
           {
             method: "GET",
           }
@@ -219,7 +219,7 @@ function Players() {
   );
 }
 
-//Displays Differing colors based on player status
+//Displays Differing colors based on player statuses
 function Display_Status(status: Number) {
   switch (status) {
     case 0:
@@ -235,7 +235,7 @@ function Display_Status(status: Number) {
   }
 }
 
-//Displays Differing Status names based on player status
+//Displays Differing Status names based on player statuses
 function Status_Text(status: Number) {
   switch (status) {
     case 0:
