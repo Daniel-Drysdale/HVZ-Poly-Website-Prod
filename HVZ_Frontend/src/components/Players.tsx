@@ -24,6 +24,8 @@ function Players() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [ItemsPerPage, setItemsPerPage] = useState<number>(10);
   const [playerList, setPlayerList] = useState<Player[]>([
     //data defaulted to "loading"
     {
@@ -34,7 +36,7 @@ function Players() {
       image: "Loading",
     },
   ]);
-  const itemsPerPage = 5; // <-- eventually needs to be changed to be a get param and have a button to change
+
   const [totalPlayers, setTotalPlayers] = useState(0);
   let totalPages = 1;
 
@@ -43,7 +45,7 @@ function Players() {
       try {
         setPlayerList(loadingData); //while grabbing the new data, set to loading
         const response = await fetch(
-          `${BASE_URL}v2/api/PageList/?page=${currentPage}`, //fetch data using current page param
+          `${BASE_URL}v2/api/PageList/?pageSize=${ItemsPerPage}&page=${currentPage}`, //fetch data using query params
           {
             method: "GET",
           }
@@ -62,9 +64,9 @@ function Players() {
       }
     };
     fetchPlayerData();
-  }, [currentPage]);
+  }, [currentPage, ItemsPerPage]);
 
-  totalPages = Math.ceil(totalPlayers / itemsPerPage);
+  totalPages = Math.ceil(totalPlayers / ItemsPerPage);
 
   const handleNext = () => {
     //Handles clicking next on the page buttons below the list
@@ -80,17 +82,21 @@ function Players() {
     }
   };
 
+  const handleItemsPerPage = (itemNum: number) => {
+    setItemsPerPage(itemNum);
+  };
+
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <table className="table table-dark text-center">
         <thead>
           <tr>
             <th
-              style={{ width: "15vw", marginLeft: "10vw", minWidth: "150px" }}
+              style={{ width: "1rem", marginLeft: "10vw", minWidth: "130px" }}
             >
               Player Image
             </th>
-            <th style={{ minWidth: "200px", width: "25vw" }}>Name</th>
+            <th style={{ minWidth: "50px", width: "" }}>Name</th>
             <th>Team</th>
             <th>Tags</th>
           </tr>
@@ -102,7 +108,7 @@ function Players() {
                 <img
                   src={player.image !== "Loading" ? player.image : Loading}
                   alt={player.name}
-                  style={{ width: "7vw", height: "6vw" }}
+                  style={{ width: "65%", height: "65%" }}
                 />
               </td>
               <td
@@ -136,29 +142,84 @@ function Players() {
           ))}
         </tbody>
       </table>
-      <div className="pagination-controls center-div">
-        <button
-          onClick={handlePrevious}
-          disabled={
-            currentPage === 1 || playerList === loadingData || currentPage === 0
-          }
-        >
-          Previous
-        </button>
-        <span
-          style={{ color: "white", marginLeft: "10px", marginRight: "10px" }}
-        >{`Page ${currentPage} of ${totalPages === 0 ? 1 : totalPages}`}</span>
-        <button
-          onClick={handleNext}
-          disabled={currentPage >= totalPages || playerList === loadingData}
-        >
-          Next
-        </button>
+      <div className=" center-div">
+        <div className="col mx-5 pagination-controls center-div">
+          <button
+            onClick={handlePrevious}
+            disabled={
+              currentPage === 1 ||
+              playerList === loadingData ||
+              currentPage === 0
+            }
+          >
+            Prev
+          </button>
+          <span
+            style={{
+              color: "white",
+              marginLeft: "10px",
+              marginRight: "10px",
+            }}
+          >{`Page ${currentPage} of ${
+            totalPages === 0 ? 1 : totalPages
+          }`}</span>
+          <button
+            onClick={handleNext}
+            disabled={currentPage >= totalPages || playerList === loadingData}
+          >
+            Next
+          </button>
+        </div>
+
+        <div className="center-div">
+          <center>
+            <div className="center-div">
+              <p
+                className=" white col"
+                style={{
+                  minWidth: "150px",
+                  paddingTop: "10px",
+                  marginLeft: "10px",
+                  marginRight: "5px",
+                }}
+              >
+                Items Per Page:
+              </p>
+            </div>
+          </center>
+          <div className="center-div">
+            <button
+              className="col "
+              onClick={() => handleItemsPerPage(5)}
+              disabled={ItemsPerPage == 5}
+              style={{ height: "10%" }}
+            >
+              5
+            </button>
+            <button
+              className="col"
+              onClick={() => handleItemsPerPage(10)}
+              disabled={ItemsPerPage == 10}
+              style={{ height: "10%" }}
+            >
+              10
+            </button>
+            <button
+              className="col"
+              onClick={() => handleItemsPerPage(15)}
+              disabled={ItemsPerPage == 15}
+              style={{ height: "10%" }}
+            >
+              15
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
+//Displays Differing colors based on player statuses
 function Display_Status(status: Number) {
   switch (status) {
     case 0:
@@ -174,6 +235,7 @@ function Display_Status(status: Number) {
   }
 }
 
+//Displays Differing Status names based on player statuses
 function Status_Text(status: Number) {
   switch (status) {
     case 0:

@@ -42,8 +42,9 @@ def player_list(request):
 def paginated_player_list(request):
     if request.method == "GET":
         page = int(request.GET.get("page", 1))
+        itemsPerPage = int(request.GET.get("pageSize", 5))
 
-        database_url = API_BASE_URL + f"/v2/functions/players?page={page}"
+        database_url = API_BASE_URL + f"/v2/functions/players?page={page}&pageSize={itemsPerPage}"
         
     
         headers = {
@@ -64,6 +65,25 @@ def paginated_player_list(request):
 def player_count(request): 
      if (request.method == "GET"):
          database_url = API_BASE_URL + "/v2/functions/home"
+         
+         headers = {
+                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+          
+            }
+         
+         database_response = requests.get(database_url, headers=headers)
+          
+         return JsonResponse(database_response.json(), status = 200, safe = False)
+         
+         
+         
+     return JsonResponse("Invalid Request", status = 400)
+ 
+ 
+@csrf_exempt
+def mvz(request): 
+     if (request.method == "GET"):
+         database_url = API_BASE_URL + "/v2/functions/mvz"
          
          headers = {
                 'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 

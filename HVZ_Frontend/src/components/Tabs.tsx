@@ -70,60 +70,79 @@ const Tabs: React.FC = () => {
 
   return (
     <>
-      <div className="center-div"></div>
-      <ul
-        className="nav nav-pills "
-        style={{
-          position: "absolute",
-          minWidth: "800px",
-          top: "-20px",
-          marginLeft: "7vw",
-          marginRight: "10vw",
-        }}
-      >
+      <div style={{ minWidth: "5rem" }}>
+        <div className="center-div" style={{ width: "rem" }}></div>
         <ul
-          className="nav nav-pills m-5 row font-type center-divs"
-          style={{ marginInline: "5%" }}
+          className="nav nav-pills"
+          style={{
+            position: "absolute",
+            minWidth: "100%",
+            top: "2rem",
+            marginLeft: "80px",
+            marginRight: "100%",
+          }}
         >
-          <li className="nav-item col">
-            <button
-              className={`nav-link ${activeTab === 0 ? "active" : ""}`}
-              onClick={() => handleTabClick(0)}
-              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
-            >
-              Home
-            </button>
-          </li>
-          <li className="nav-item col">
-            <button
-              className={`nav-link ${activeTab === 1 ? "active" : ""}`}
-              onClick={() => handleTabClick(1)}
-              style={{ width: "15vw", fontSize: "15px", minWidth: "95px" }}
-            >
-              Players
-            </button>
-          </li>
-          <li className="nav-item col">
-            <button
-              className={`nav-link ${activeTab === 2 ? "active" : ""}`}
-              onClick={() => handleTabClick(2)}
-              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
-            >
-              Rules
-            </button>
-          </li>
-          <li className="nav-item col">
-            <button
-              className={`nav-link ${activeTab === 3 ? "active" : ""}`}
-              onClick={() => handleTabClick(3)}
-              style={{ width: "15vw", fontSize: "15px", minWidth: "70px" }}
-            >
-              Links
-            </button>
-          </li>
+          <ul className="nav nav-pills font-type" style={{}}>
+            <li className="nav-item col">
+              <button
+                className={`nav-link ${activeTab === 0 ? "active" : ""}`}
+                onClick={() => handleTabClick(0)}
+                style={{
+                  marginInline: "10%",
+                  width: "100%",
+                  fontSize: ".9rem",
+                  minWidth: "30%",
+                }}
+              >
+                Home
+              </button>
+            </li>
+            <li className="nav-item col">
+              <button
+                className={`nav-link ${activeTab === 1 ? "active" : ""}`}
+                onClick={() => handleTabClick(1)}
+                style={{
+                  marginInline: "10%",
+                  width: "100%",
+                  fontSize: ".9rem",
+                  minWidth: "20%",
+                }}
+              >
+                Players
+              </button>
+            </li>
+            <li className="nav-item col">
+              <button
+                className={`nav-link ${activeTab === 2 ? "active" : ""}`}
+                onClick={() => handleTabClick(2)}
+                style={{
+                  marginInline: "10%",
+                  width: "100%",
+                  fontSize: ".9rem",
+                  minWidth: "20%",
+                }}
+              >
+                Rules
+              </button>
+            </li>
+            <li className="nav-item col">
+              <button
+                className={`nav-link ${activeTab === 3 ? "active" : ""}`}
+                onClick={() => handleTabClick(3)}
+                style={{
+                  marginInline: "10%",
+                  width: "100%",
+                  fontSize: ".9rem",
+                  minWidth: "20%",
+                }}
+              >
+                Links
+              </button>
+            </li>
+          </ul>
         </ul>
-      </ul>
-      <div style={{ marginTop: "100px" }}>{renderTabContent()}</div>
+        <div style={{ marginTop: "100px" }}>{renderTabContent()}</div>
+      </div>
     </>
   );
 };

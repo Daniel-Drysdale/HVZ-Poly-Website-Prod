@@ -13,8 +13,10 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@react-pdf/renderer": "^3.4.4",
+    "@types/d3": "^7.4.3",
     "babel": "^6.23.0",
     "bootstrap": "^5.3.3",
+    "d3": "^7.9.0",
     "dotenv": "^16.4.5",
     "pdfjs-dist": "^4.6.82",
     "pspdfkit": "^2024.5.2",
