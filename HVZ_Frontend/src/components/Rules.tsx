@@ -1,4 +1,4 @@
-import Rules_Slides from "../assets/FA24_Rules_Slides.pdf"; // Adjust the path as necessary
+import Rules_Slides from "../assets/rules.pdf"; // Adjust the path as necessary
 
 const Rules = () => {
   return (
