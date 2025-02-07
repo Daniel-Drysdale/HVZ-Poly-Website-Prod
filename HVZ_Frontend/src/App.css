@@ -81,3 +81,18 @@ table.table tbody tr.table-danger-deep {
   background: none;
   margin: 0%;
 }
+
+.searchBoxes {
+  width: 100px;
+  height: 40px;
+}
+
+body {
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  margin: 0; /* Ensure no margin is pushing the content out */
+}
+
+html {
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  margin: 0; /* Ensure no margin is pushing the content out */
+}
