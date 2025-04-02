@@ -48,7 +48,7 @@ function Links() {
                   //// Link to NerfTech's Youtube Channel ////
                 </header>
                 <div className="center-div">
-                  <a href="https://www.youtube.com/@floridapolytechnicnerftech5966">
+                  <a href="https://www.youtube.com/watch?v=C4cfo0f88Ug">
                     <img
                       src={Youtube_Logo}
                       alt={"Youtube Link"}
