@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "../assets/Loading.gif";
+import PlayerSearch from "./PlayerSearch";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
@@ -87,7 +88,7 @@ function Players() {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ paddingTop: "80px", width: "100%" }}>
       <table className="table table-dark text-center">
         <thead>
           <tr>
