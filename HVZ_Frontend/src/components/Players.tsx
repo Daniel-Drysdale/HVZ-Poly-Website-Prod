@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Loading from "../assets/Loading.gif";
-import PlayerSearch from "./PlayerSearch";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
