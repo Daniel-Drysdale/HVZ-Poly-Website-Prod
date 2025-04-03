@@ -39,7 +39,7 @@ def player_creation(request): #creates a player after taking in a request from a
             return JsonResponse({"Error" : "Error trying to match data to player datatype", "status" : 400})
         try:
            
-            headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+            headers = {'Authorization': 'Bearer '+ API_KEY}
             
             database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data", json = post_data , headers=headers)
             
@@ -63,7 +63,7 @@ def player_infection(request):
         
         post_data = json.loads(request.body)
            
-        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+        headers = {'Authorization': 'Bearer '+ API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/infection", json = post_data , headers=headers)
         return HttpResponse(database_post)
@@ -80,8 +80,9 @@ def OZ(request): #Makes a player an OZ
         
         post_data = json.loads(request.body)
         print(post_data)
+        
            
-        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+        headers = {'Authorization': 'Bearer '+ API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/inf_oz", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
@@ -97,7 +98,7 @@ def cure(request): #cures a player (i.e. makes any player into a human)
         
         post_data = json.loads(request.body)
            
-        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+        headers = {'Authorization': 'Bearer ' + API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/cure", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
@@ -113,7 +114,7 @@ def mod(request): #Makes a player a Mod on the frontend / database
         post_data = json.loads(request.body)
         
            
-        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+        headers = {'Authorization': 'Bearer '+ API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/mod", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
@@ -127,9 +128,21 @@ def wipe(request): #wipes the data from the database - use after every hvz
         post_data = json.loads(request.body)
         
            
-        headers = {'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY}
+        headers = {'Authorization': 'Bearer '+ API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/wipe", json = post_data , headers=headers)
+        return JsonResponse(database_post.status_code, safe = False)
+    
+    return JsonResponse({"Invalid Request" : 405})
+
+@csrf_exempt
+def remove(request): #Removes player from the game - will help sync the bot and website
+    if request.method == "POST":
+        
+        post_data = json.loads(request.body)
+        headers = {'Authorization': 'Bearer '+ API_KEY}
+            
+        database_post = requests.post(API_BASE_URL + "/v2/functions/", json = post_data , headers=headers)
         return JsonResponse(database_post.status_code, safe = False)
     
     return JsonResponse({"Invalid Request" : 405})

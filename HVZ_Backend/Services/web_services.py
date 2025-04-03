@@ -23,7 +23,7 @@ def player_list(request):
         
         database_url = API_BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data"
         headers = {
-                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+                'Authorization': 'Bearer ' + API_KEY, 
           
             }
         
@@ -48,7 +48,7 @@ def paginated_player_list(request):
         
     
         headers = {
-                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+                'Authorization': 'Bearer '+ API_KEY, 
           
           
             }
@@ -67,7 +67,7 @@ def player_count(request):
          database_url = API_BASE_URL + "/v2/functions/home"
          
          headers = {
-                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+                'Authorization': 'Bearer '+ API_KEY, 
           
             }
          
@@ -86,7 +86,7 @@ def mvz(request):
          database_url = API_BASE_URL + "/v2/functions/mvz"
          
          headers = {
-                'Authorization': 'Bearer sqlitecloud://npb09elghz.sqlite.cloud:8860?apikey=' + API_KEY, 
+                'Authorization': 'Bearer '+ API_KEY, 
           
             }
          

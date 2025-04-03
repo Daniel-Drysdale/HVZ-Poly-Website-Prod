@@ -31,4 +31,3 @@ dist-ssr
 *\migrations
 *.pyc
 *\__init__
-/HVZ_Backend/admin/__pycache__
