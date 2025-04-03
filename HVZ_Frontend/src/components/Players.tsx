@@ -87,7 +87,7 @@ function Players() {
   };
 
   return (
-    <div style={{ paddingTop: "80px", width: "100%" }}>
+    <div style={{ width: "100%" }}>
       <table className="table table-dark text-center">
         <thead>
           <tr>
