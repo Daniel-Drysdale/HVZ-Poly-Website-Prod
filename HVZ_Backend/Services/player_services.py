@@ -53,7 +53,7 @@ def player_creation(request): #creates a player after taking in a request from a
 
 
 
-# ////////////////// All the classes below change player statuses //////////////////
+# ////////////////// All the classes below change player statuses and the player attribute //////////////////
 
 
 

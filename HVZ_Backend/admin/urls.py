@@ -16,5 +16,7 @@ urlpatterns = [
     path('v2/api/cure/', player_services.cure),
     path('v2/api/mod/', player_services.mod),
     path('v2/api/wipe/', player_services.wipe),
-    path('v2/api/remove/', player_services.remove)
+    path('v2/api/remove/', player_services.remove),
+    path('v2/api/inf_map/', web_services.infection_map)
+    
 ]
