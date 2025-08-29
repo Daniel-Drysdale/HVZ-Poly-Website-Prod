@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from dataclasses import dataclass, asdict
-from .env import API_KEY, API_BASE_URL
+from .env import API_KEY, API_BASE_URL, WIPE_PASSWORD
 
 @dataclass
 class player:
@@ -79,7 +79,6 @@ def OZ(request): #Makes a player an OZ
     if request.method == "POST":
         
         post_data = json.loads(request.body)
-        print(post_data)
         
            
         headers = {'Authorization': 'Bearer '+ API_KEY}
@@ -111,6 +110,7 @@ def cure(request): #cures a player (i.e. makes any player into a human)
 def mod(request): #Makes a player a Mod on the frontend / database
     if request.method == "POST":
         
+        
         post_data = json.loads(request.body)
         
            
@@ -127,7 +127,11 @@ def wipe(request): #wipes the data from the database - use after every hvz
         
         post_data = json.loads(request.body)
         
-           
+        wipe_password = post_data["password"]
+        
+        if wipe_password != WIPE_PASSWORD:
+              return JsonResponse({"Invalid Password" : 405})
+            
         headers = {'Authorization': 'Bearer '+ API_KEY}
             
         database_post = requests.post(API_BASE_URL + "/v2/functions/wipe", json = post_data , headers=headers)
