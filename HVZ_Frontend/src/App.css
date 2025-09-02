@@ -1,3 +1,15 @@
+body,
+html {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.center-div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .nav-item {
   font-weight: bold;
   color: #000000; /* Adjust the color as needed */
@@ -13,37 +25,42 @@ ul.nav.nav-pills {
   --bs-nav-link-hover-color: #ffffff;
 }
 
+.overlay-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .overlay-text {
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-
-  transform: translate(-50%, -50%);
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add a shadow for better visibility */
-  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding-bottom: -10;
 }
 
 .large-text {
-  font-size: 10vw;
+  font-size: 11vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  white-space: nowrap;
+  font-style: bold;
 }
-
 .small-text {
   font-size: 3vw;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 130%);
+  white-space: nowrap;
 }
 
 .table {
   background-color: rgb(44, 44, 44);
-}
-
-.font-type {
-  font-family: monospace;
-}
-
-.center-div {
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .table-success-deep {
@@ -85,14 +102,4 @@ table.table tbody tr.table-danger-deep {
 .searchBoxes {
   width: 100px;
   height: 40px;
-}
-
-body {
-  overflow-x: hidden; /* Disable horizontal scrolling */
-  margin: 0; /* Ensure no margin is pushing the content out */
-}
-
-html {
-  overflow-x: hidden; /* Disable horizontal scrolling */
-  margin: 0; /* Ensure no margin is pushing the content out */
 }

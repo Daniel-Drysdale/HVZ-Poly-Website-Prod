@@ -1,3 +1,4 @@
+import React from "react";
 import Rules_Slides from "../assets/rules.pdf"; // Adjust the path as necessary
 
 const Rules = () => {
@@ -10,6 +11,7 @@ const Rules = () => {
         width: "100%",
         height: "100vh",
         padding: "20px",
+        paddingTop: "7rem",
       }}
     >
       <object

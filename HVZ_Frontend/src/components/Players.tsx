@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import Loading from "../assets/Loading.gif";
 
@@ -87,7 +88,7 @@ function Players() {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", paddingTop: "6.5rem" }}>
       <table className="table table-dark text-center">
         <thead>
           <tr>

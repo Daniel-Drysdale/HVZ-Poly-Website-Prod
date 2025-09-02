@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import H_Rect from "../assets/Human_Rect.png";
 import Z_Rect from "../assets/Zombie_Rect.png";
 
@@ -61,75 +61,51 @@ const Home = () => {
     <div>
       <center>
         <div
-          className="row"
-          style={{
-            paddingTop: "2rem",
-            minWidth: "10rem",
-            display: "flex",
-            marginInline: "10%",
-          }}
+          className="row justify-content-center"
+          style={{ paddingTop: "9rem", marginInline: "10%" }}
         >
-          <div className="col position-relative">
+          <div className="col-auto position-relative text-center">
             <img
-              className="row"
               src={H_Rect}
               style={{ width: "30vw", minWidth: "100px" }}
               alt="Human_Background"
             />
-            <div
-              className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "20vw" }}
-            >
-              {Players.humans}
-            </div>
-            <div
-              className="overlay-text small-text"
-              style={{ top: "19.5vw", left: "20vw", width: "1000%" }}
-            >
-              Humans Remaining
+            <div className="overlay-div" style={{ color: "white" }}>
+              <div className="overlay-text large-text">{Players.humans}</div>
+              <div className="overlay-text small-text">Humans Remaining</div>
             </div>
           </div>
 
-          <div className="col position-relative">
+          <div className="col-auto position-relative text-center">
             <img
-              className="row"
               src={Z_Rect}
               style={{ width: "30vw", minWidth: "100px" }}
               alt="Zombie_Background"
+              className="img-fluid"
             />
-            <div
-              className="overlay-text large-text center-div"
-              style={{ top: "11.5vw", left: "20.9vw" }}
-            >
-              {Players.zombies}
-            </div>
-            <div
-              className="overlay-text small-text center-div"
-              style={{ top: "19.5vw", left: "20vw", minWidth: "1000px" }}
-            >
-              Zombies Hunting
+            <div className="overlay-div" style={{ color: "white" }}>
+              <div className="overlay-text large-text">{Players.zombies}</div>
+              <div className="overlay-text small-text">Zombies Hunting</div>
             </div>
           </div>
         </div>
       </center>
+
       <h3
         className="center-div"
         style={{
           paddingTop: "50px",
           paddingBottom: "10px",
-          fontFamily: "monospace",
           color: "white",
+          fontFamily: "monospace",
         }}
       >
         Top 3 Zombies
       </h3>
+
       <table
-        className="table table-dark text-center"
-        style={{
-          marginTop: "3vw",
-          width: "50%",
-          margin: "auto",
-        }}
+        className="table table-dark text-center "
+        style={{ marginTop: "3vw", width: "50%", margin: "auto" }}
       >
         <thead>
           <tr></tr>
@@ -137,9 +113,7 @@ const Home = () => {
         <tbody>
           {MVZ_List.map((player, index) => (
             <tr key={index}>
-              {}
               <td
-                className=""
                 style={{
                   paddingTop: "25px",
                   paddingBottom: "25px",

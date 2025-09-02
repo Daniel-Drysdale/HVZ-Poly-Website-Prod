@@ -1,10 +1,11 @@
+import React from "react";
 import QR_Code from "../assets/Nerf-Tech-QR.png";
 import Youtube_Logo from "../assets/youtube_image.png";
 
 function Links() {
   return (
     <>
-      <div>
+      <div style={{ paddingTop: "5rem" }}>
         <ul
           style={{
             display: "flex",
