@@ -1,4 +1,3 @@
-import React from "react";
 import QR_Code from "../assets/Nerf-Tech-QR.png";
 import Youtube_Logo from "../assets/youtube_image.png";
 

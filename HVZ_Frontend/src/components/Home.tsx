@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import H_Rect from "../assets/Human_Rect.png";
 import Z_Rect from "../assets/Zombie_Rect.png";
 

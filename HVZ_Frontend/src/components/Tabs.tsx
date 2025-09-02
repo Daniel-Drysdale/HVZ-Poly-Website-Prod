@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Tabs: React.FC = () => {
-  // Inline styles preserved from your original code
   const tabStyle = (minWidth: string) => ({
     marginInline: "10%",
     width: "100%",
@@ -68,17 +67,6 @@ const Tabs: React.FC = () => {
               style={tabStyle("20%")}
             >
               Links
-            </NavLink>
-          </li>
-          <li className="nav-item col">
-            <NavLink
-              to="/map"
-              className={({ isActive }) =>
-                "nav-link" + (isActive ? " active" : "")
-              }
-              style={tabStyle("30%")}
-            >
-              Map
             </NavLink>
           </li>
         </ul>
