@@ -8,16 +8,18 @@ html {
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  font-family: monospace;
 }
 
 .nav-item {
   font-weight: bold;
-  color: #000000; /* Adjust the color as needed */
+  color: #000000;
 }
 
 .nav-pills {
   --bs-link-color: #000000;
   color: #ffffff;
+  font-family: monospace;
 }
 
 ul.nav.nav-pills {
