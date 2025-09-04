@@ -29,5 +29,7 @@ dist-ssr
 *.gitattributes
 *\__pycache__
 *\migrations
-*.pyc
+\.pyc
 *\__init__
+__pycache__/
+migrations/
