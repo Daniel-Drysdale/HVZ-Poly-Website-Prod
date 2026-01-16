@@ -17,6 +17,20 @@ class player:
     tags: int
     image: str
     
+@dataclass
+class Edge:
+  id: str
+  source: str
+  target: str
+
+@dataclass
+class Node:
+  id: str
+  data: dict
+  type: str
+
+    
+    
 
 
 @csrf_exempt
@@ -109,64 +123,43 @@ def infection_map(request):
             'Authorization': 'Bearer ' + API_KEY
         }
         
+        
+        
         response = requests.get(database_url, headers=headers)
         database_response = response.json()
 
-        ozs = database_response.get('oz', [])
+        ozs = database_response.get('oz', {})
         zombies = database_response.get('zombies', [])
         all_players = ozs + zombies
+        oz_names = [oz["name"] for oz in ozs]
 
         name_to_player = {player['name']: player for player in all_players}
 
-        # Track infections: who infected whom
+        #Creates list of all infections
         infections = {}
-        for infector in all_players:
-            named_tags = infector.get('named_tags', '').strip()
+        for zombie in all_players:
+            named_tags = zombie.get('named_tags', '').strip()
             if not named_tags:
                 continue
             infected_list = [n.strip() for n in named_tags.split(',') if n.strip()]
-            infections[infector['name']] = infected_list
+            infections[zombie['name']] = infected_list
 
-        # Assign levels using BFS from OZs
-        levels = {}
-        visited = set()
-        queue = deque()
+            
+            
+    
 
-        for oz in ozs:
-            name = oz['name']
-            levels[name] = 0
-            visited.add(name)
-            queue.append((name, 0))
-
-        while queue:
-            current_name, current_level = queue.popleft()
-            for infected in infections.get(current_name, []):
-                if infected not in visited:
-                    levels[infected] = current_level + 1
-                    visited.add(infected)
-                    queue.append((infected, current_level + 1))
-
-        # Build nodes
-        nodes = []
-        for player in all_players:
-            name = player['name']
-            nodes.append({
-                'id': name,
-                'label': name,
-                'type': 'oz' if player in ozs else 'zombie',
-                'level': levels.get(name)
-            })
-
-        # Build links
-        links = []
-        for infector_name, infected_list in infections.items():
-            for infected_name in infected_list:
-                if infected_name in name_to_player:
-                    links.append({
-                        'source': infector_name,
-                        'target': infected_name
-                    })
-
-        return JsonResponse({'nodes': nodes, 'links': links}, safe=False)
+        return JsonResponse({"infections": infections, "ozs": oz_names}, safe=False)
 
     return JsonResponse({'error': 'Invalid Request'}, status=400)
+
+
+def build_tree(root_name: str, infections: dict[str, list[str]], visited=None, ):
+    if visited is None:
+        visited = set()
+    if root_name in visited:
+        return {} 
+    visited.add(root_name)
+
+    children = infections.get(root_name, [])
+    return {child: build_tree(child, infections, visited.copy()) for child in children}
+
