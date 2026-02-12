@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@ardnt/vercel-python-wsgi": "^1.1.1",
-    "bootstrap": "^5.3.3"
-  }
-}
