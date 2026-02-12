@@ -20,7 +20,7 @@ type Player = {
   badgeIds: number[];
 };
 
-function Players() {
+function PlayerTable() {
   //Acts as a stand-in to show that the list in being loaded
   const loadingData: Player[] = [
     {
@@ -288,4 +288,4 @@ function Status_Text(status: Number) {
   }
 }
 
-export default Players;
+export default PlayerTable;

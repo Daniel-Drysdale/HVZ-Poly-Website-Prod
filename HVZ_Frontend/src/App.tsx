@@ -5,10 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./components/Logo.tsx";
 import Tabs from "./components/Tabs.tsx";
 import Home from "./components/Home.tsx";
-import Players from "./components/Players.tsx";
+import PlayerTable from "./components/PlayerTable.tsx";
 import Rules from "./components/Rules.tsx";
 import Links from "./components/Links.tsx";
 
+//Top Level of the Website
 function App() {
   return (
     <Router>
@@ -19,7 +20,7 @@ function App() {
         <Tabs />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/players" element={<Players />} />
+          <Route path="/players" element={<PlayerTable />} />
           <Route path="/rules" element={<Rules />} />
           <Route path="/links" element={<Links />} />
         </Routes>
