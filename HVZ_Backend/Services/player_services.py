@@ -13,7 +13,12 @@ class player:
     status: int
     tags: int
     image: str
-    named_tags: list
+    named_tags: str
+    
+@dataclass
+class badge:
+    name:str
+    image:str
 
 @csrf_exempt
 def player_creation(request): #creates a player after taking in a request from a mod
@@ -29,7 +34,7 @@ def player_creation(request): #creates a player after taking in a request from a
                 status = incoming_data['status'],
                 tags = incoming_data['tags'],
                 image = incoming_data['image'],
-                named_tags = incoming_data['named_tags']
+                named_tags = ""
             )
             
             post_data = asdict(player_data)
@@ -150,3 +155,5 @@ def remove(request): #Removes player from the game - will help sync the bot and 
         return JsonResponse(database_post.status_code, safe = False)
     
     return JsonResponse({"Invalid Request" : 405})
+
+

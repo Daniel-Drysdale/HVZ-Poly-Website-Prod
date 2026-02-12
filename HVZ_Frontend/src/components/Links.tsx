@@ -4,7 +4,7 @@ import Youtube_Logo from "../assets/youtube_image.png";
 function Links() {
   return (
     <>
-      <div style={{ paddingTop: "5rem" }}>
+      <div style={{ paddingTop: "80px" }}>
         <ul
           style={{
             display: "flex",

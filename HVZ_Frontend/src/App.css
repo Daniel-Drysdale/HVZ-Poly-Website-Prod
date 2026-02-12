@@ -105,3 +105,16 @@ table.table tbody tr.table-danger-deep {
   width: 100px;
   height: 40px;
 }
+
+.search-btn {
+  --bs-btn-bg: #2a9d8f;
+  --bs-btn-border-color: #2a9d8f;
+
+  --bs-btn-hover-bg: #21867a;
+  --bs-btn-hover-border-color: #21867a;
+
+  --bs-btn-active-bg: #1e766b;
+  --bs-btn-active-border-color: #1e766b;
+
+  --bs-btn-color: white;
+}

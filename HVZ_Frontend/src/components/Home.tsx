@@ -62,7 +62,7 @@ const Home = () => {
       <center>
         <div
           className="row justify-content-center"
-          style={{ paddingTop: "9rem", marginInline: "10%" }}
+          style={{ paddingTop: "120px", marginInline: "10%" }}
         >
           <div className="col-auto position-relative text-center">
             <img
@@ -97,15 +97,16 @@ const Home = () => {
           paddingTop: "50px",
           paddingBottom: "10px",
           color: "white",
+          fontSize: "2vw",
           fontFamily: "monospace",
         }}
       >
-        Top 3 Zombies
+        ++ Top 3 Zombies ++
       </h3>
 
       <table
         className="table table-dark text-center "
-        style={{ marginTop: "3vw", width: "50%", margin: "auto" }}
+        style={{ marginTop: "1vw", width: "50%", margin: "auto" }}
       >
         <thead>
           <tr></tr>
