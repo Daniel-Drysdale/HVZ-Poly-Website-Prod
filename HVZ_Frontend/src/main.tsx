@@ -14,7 +14,6 @@ createRoot(document.getElementById("root")!).render(
         top: "-100px",
         position: "absolute",
       }}
-      alt="Header"
     />
     <App />
   </StrictMode>

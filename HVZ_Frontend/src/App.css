@@ -1,11 +1,25 @@
+body,
+html {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.center-div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: monospace;
+}
+
 .nav-item {
   font-weight: bold;
-  color: #000000; /* Adjust the color as needed */
+  color: #000000;
 }
 
 .nav-pills {
   --bs-link-color: #000000;
   color: #ffffff;
+  font-family: monospace;
 }
 
 ul.nav.nav-pills {
@@ -13,37 +27,42 @@ ul.nav.nav-pills {
   --bs-nav-link-hover-color: #ffffff;
 }
 
+.overlay-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .overlay-text {
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-
-  transform: translate(-50%, -50%);
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: add a shadow for better visibility */
-  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding-bottom: -10;
 }
 
 .large-text {
-  font-size: 10vw;
+  font-size: 11vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  white-space: nowrap;
+  font-style: bold;
 }
-
 .small-text {
   font-size: 3vw;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 130%);
+  white-space: nowrap;
 }
 
 .table {
   background-color: rgb(44, 44, 44);
-}
-
-.font-type {
-  font-family: monospace;
-}
-
-.center-div {
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .table-success-deep {
@@ -87,12 +106,15 @@ table.table tbody tr.table-danger-deep {
   height: 40px;
 }
 
-body {
-  overflow-x: hidden; /* Disable horizontal scrolling */
-  margin: 0; /* Ensure no margin is pushing the content out */
-}
+.search-btn {
+  --bs-btn-bg: #2a9d8f;
+  --bs-btn-border-color: #2a9d8f;
 
-html {
-  overflow-x: hidden; /* Disable horizontal scrolling */
-  margin: 0; /* Ensure no margin is pushing the content out */
+  --bs-btn-hover-bg: #21867a;
+  --bs-btn-hover-border-color: #21867a;
+
+  --bs-btn-active-bg: #1e766b;
+  --bs-btn-active-border-color: #1e766b;
+
+  --bs-btn-color: white;
 }

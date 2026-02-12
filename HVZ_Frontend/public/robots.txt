@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hvz-poly.vercel.app/sitemap.xml
+Sitemap: https://hvz-poly.vercel.app/sitemap.xml.gz
