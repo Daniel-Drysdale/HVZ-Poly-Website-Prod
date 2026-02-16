@@ -105,7 +105,7 @@ const Option = ({
     >
       <motion.span variants={actionIconVariants}>
         <Icon />
-      </motion.span
+      </motion.span>
       {text}
     </motion.li>
   );
@@ -125,8 +125,6 @@ const wrapperVariants = {
     transition: { when: "afterChildren", staggerChildren: 0.05 },
   },
 };
-
-
 
 const itemVariants = {
   open: { opacity: 1, y: 0 },
