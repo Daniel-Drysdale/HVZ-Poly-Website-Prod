@@ -25,6 +25,7 @@ As such, I made this website to fill that need. It has been operational for arou
 
 ## Current Work-in-Progress Items:
 
+- Drop Down Menu instead of tabs [√]
 - Creating Badge functionality [√]
 - Creating an Infection Map + Functionality [X]
 - Create Interactive Map for players to use [X]
