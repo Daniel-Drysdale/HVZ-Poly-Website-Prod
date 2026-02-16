@@ -14,6 +14,7 @@ urlpatterns = [
     path('v2/api/mvz/', web_services.mvz),
     path('v2/api/badge_creation/', web_services.badge_creation),
     path('v2/api/get_badge_list/', web_services.get_badge_list),
+    path('v2/api/give_badge/', web_services.give_badge),
     
     #Player Services (Bot Services)
     path('v2/api/player_creation/', player_services.player_creation),
@@ -23,6 +24,4 @@ urlpatterns = [
     path('v2/api/mod/', player_services.mod),
     path('v2/api/wipe/', player_services.wipe),
     path('v2/api/remove/', player_services.remove),
-    
-    
 ]

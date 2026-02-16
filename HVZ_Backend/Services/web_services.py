@@ -35,6 +35,12 @@ class Node:
   id: str
   data: dict
   type: str
+  
+@dataclass
+class Player_Badge:
+    player_id:int
+    badge_name:str
+    
 
     
     
@@ -192,6 +198,37 @@ def badge_creation(request): #creates a player after taking in a request from a 
 
     return JsonResponse({"Invalid Request" : 405})
 
+
+@csrf_exempt
+def give_badge(request): #Gives badge to player
+    if request.method == "POST":
+        try:
+            incoming_data = json.loads(request.body)
+            
+            player_badge: Player_Badge = {
+                "player_id":int(incoming_data["player_id"]),
+                "badge_name":str(incoming_data["badge_name"])
+                
+            }
+            
+            headers = {'Authorization': 'Bearer '+ API_KEY}
+            
+            
+            post_data = asdict(player_badge)
+            
+            database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/give_badge", json = post_data , headers=headers)
+            
+            return JsonResponse({"status": database_post.status_code})
+        
+            
+        except:
+            return JsonResponse({"Error" : "Error trying to match data to base datatype", "status" : 400})
+    
+            
+
+       
+
+    return JsonResponse({"Invalid Request" : 405})
  
 # @csrf_exempt
 # def infection_map(request): 
