@@ -4,12 +4,12 @@ import Youtube_Logo from "../assets/youtube_image.png";
 function Links() {
   return (
     <>
-      <div style={{ paddingTop: "80px" }}>
+      <div style={{ paddingTop: "40px" }}>
         <ul
           style={{
             display: "flex",
             listStyleType: "none",
-            paddingTop: "3vw",
+            paddingTop: "45px",
           }}
         >
           <div className="col">
@@ -60,7 +60,7 @@ function Links() {
             </li>
           </div>
         </ul>
-        <div className="center-div font-type" style={{ paddingTop: "1vw" }}>
+        <div className="center-div font-type">
           <header
             className="center-div"
             style={{
@@ -76,7 +76,7 @@ function Links() {
               width="50%"
               height="50%"
               allowFullScreen
-              src="https://www.youtube.com/embed/QxP_L2Gglzw?si=cxWiY_A-qkmgbwlV"
+              src="https://www.youtube.com/embed/Y5nJJuNs3rY?si=s9Ai9mZW9_fyg2KC"
               style={{ minWidth: "500px", width: "100%", height: "40vh" }}
             ></iframe>
           </div>

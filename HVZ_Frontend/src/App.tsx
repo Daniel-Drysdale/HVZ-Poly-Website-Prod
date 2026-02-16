@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Logo from "./components/Logo.tsx";
-import Tabs from "./components/Tabs.tsx";
+import StaggeredDropDown from "./components/StaggeredDropdown.tsx";
 import Home from "./components/Home.tsx";
 import PlayerTable from "./components/PlayerTable.tsx";
 import Rules from "./components/Rules.tsx";
@@ -17,7 +17,9 @@ function App() {
         <div style={{ width: "10%" }}>
           <Logo />
         </div>
-        <Tabs />
+        <span style={{ position: "absolute", right: "-25px" }}>
+          <StaggeredDropDown />
+        </span>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/players" element={<PlayerTable />} />

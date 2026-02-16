@@ -10,7 +10,7 @@ const Rules = () => {
         width: "100%",
         height: "100vh",
         padding: "20px",
-        paddingTop: "7rem",
+        paddingTop: "90px",
       }}
     >
       <object

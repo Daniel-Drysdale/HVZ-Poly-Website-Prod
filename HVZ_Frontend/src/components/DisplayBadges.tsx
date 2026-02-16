@@ -22,9 +22,9 @@ function DisplayBadges({ badges = [], player_badges = [] }: Props) {
             title={b.name}
             alt={b.name}
             style={{
-              minWidth: "25px",
-              width: "50%",
-              maxWidth: "45px",
+              maxWidth: "35px",
+              width: "5vw",
+
               objectFit: "contain",
             }}
           />

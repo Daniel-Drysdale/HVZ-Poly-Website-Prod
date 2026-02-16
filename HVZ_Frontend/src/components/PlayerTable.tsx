@@ -104,17 +104,13 @@ function PlayerTable() {
 
   return (
     <div>
-      <div style={{ paddingTop: "100px", width: "100%" }}>
+      <div style={{ paddingTop: "80px", width: "100%" }}>
         <table className="table table-dark text-center">
           <thead>
             <tr>
-              <th
-                style={{ width: "1rem", marginLeft: "vw", minWidth: "130px" }}
-              >
-                Player Image
-              </th>
-              <th style={{ minWidth: "50px" }}>Name</th>
-              <th>Status</th>
+              <th style={{ width: "10vw", minWidth: "100px" }}>Image</th>
+              <th style={{ minWidth: "15px", maxWidth: "150px" }}>Name</th>
+              <th style={{ width: "1rem" }}>Status</th>
               <th>Tags</th>
               <th style={{ maxWidth: "200px" }}>Badges</th>
             </tr>
@@ -134,6 +130,7 @@ function PlayerTable() {
                   style={{
                     paddingTop: "25px",
                     paddingBottom: "25px",
+                    maxWidth: "px",
                   }}
                 >
                   {player.name}
@@ -161,7 +158,7 @@ function PlayerTable() {
                 <td style={{ maxWidth: "200px", maxHeight: "100px" }}>
                   <div
                     style={{
-                      marginTop: "auto",
+                      marginTop: "1.vh",
                       marginBottom: "auto",
                       justifyContent: "center",
                     }}

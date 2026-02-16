@@ -10,11 +10,11 @@ createRoot(document.getElementById("root")!).render(
       src={Header}
       style={{
         width: "100%",
-        height: "200px",
+        height: "180px",
         top: "-100px",
         position: "absolute",
       }}
     />
     <App />
-  </StrictMode>
+  </StrictMode>,
 );

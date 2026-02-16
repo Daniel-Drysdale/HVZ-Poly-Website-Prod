@@ -62,7 +62,7 @@ const Home = () => {
       <center>
         <div
           className="row justify-content-center"
-          style={{ paddingTop: "120px", marginInline: "10%" }}
+          style={{ paddingTop: "100px", marginInline: "10%" }}
         >
           <div className="col-auto position-relative text-center">
             <img
@@ -94,10 +94,10 @@ const Home = () => {
       <h3
         className="center-div"
         style={{
-          paddingTop: "50px",
+          paddingTop: "25px",
           paddingBottom: "10px",
           color: "white",
-          fontSize: "2vw",
+          fontSize: "1.7vw",
           fontFamily: "monospace",
         }}
       >
@@ -116,9 +116,9 @@ const Home = () => {
             <tr key={index}>
               <td
                 style={{
-                  paddingTop: "25px",
+                  paddingTop: "30px",
                   paddingBottom: "25px",
-                  fontSize: "2vw",
+                  fontSize: "1.5vw",
                 }}
               >
                 [ {player.name} ] tagged {player.tags} humans

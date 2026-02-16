@@ -9,8 +9,8 @@ function Logo() {
           minWidth: ".5%",
           maxWidth: "75px",
           position: "absolute",
-          marginLeft: "2px",
-          top: "5px",
+          marginLeft: "5px",
+          top: "-8px",
           marginTop: "10px",
         }}
       ></img>
