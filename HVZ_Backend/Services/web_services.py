@@ -202,29 +202,26 @@ def badge_creation(request): #creates a player after taking in a request from a 
 @csrf_exempt
 def give_badge(request): #Gives badge to player
     if request.method == "POST":
-        try:
+ 
             incoming_data = json.loads(request.body)
             
-            player_badge: Player_Badge = {
-                "player_id":int(incoming_data["player_id"]),
-                "badge_name":str(incoming_data["badge_name"])
-                
-            }
+            player_badge = Player_Badge (
+                player_id=incoming_data["player_id"],
+                badge_name=incoming_data["badge_name"]
+            )
             
             headers = {'Authorization': 'Bearer '+ API_KEY}
             
             
             post_data = asdict(player_badge)
+            print(post_data)
             
-            database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/give_badge", json = post_data , headers=headers)
+            database_post = requests.post(API_BASE_URL + "/v2/functions/give_badge", json = post_data , headers=headers)
             
             return JsonResponse({"status": database_post.status_code})
         
             
-        except:
-            return JsonResponse({"Error" : "Error trying to match data to base datatype", "status" : 400})
-    
-            
+       
 
        
 
