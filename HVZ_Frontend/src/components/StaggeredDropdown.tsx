@@ -105,7 +105,7 @@ const Option = ({
     >
       <motion.span variants={actionIconVariants}>
         <Icon />
-      </motion.span>
+      </motion.span
       {text}
     </motion.li>
   );
@@ -126,10 +126,7 @@ const wrapperVariants = {
   },
 };
 
-const iconVariants = {
-  open: { rotate: 180 },
-  closed: { rotate: 0 },
-};
+
 
 const itemVariants = {
   open: { opacity: 1, y: 0 },
