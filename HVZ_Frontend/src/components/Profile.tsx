@@ -125,7 +125,7 @@ function Profile({ player_name }: ProfileProps) {
               fontSize: "2vh",
               borderRadius: "10px",
               marginTop: "10px",
-              marginRight: "10px",
+              marginRight: "5px",
               maxWidth: "220px",
               minWidth: "200px",
             }}
@@ -143,6 +143,7 @@ function Profile({ player_name }: ProfileProps) {
               borderRadius: "10px",
               fontSize: "2vh",
               marginTop: "10px",
+              marginLeft: "5px",
               maxWidth: "220px",
               minWidth: "200px",
             }}
