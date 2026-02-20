@@ -96,7 +96,7 @@ function Profile({ player_name }: ProfileProps) {
       <div
         style={{
           textAlign: "center",
-          marginTop: "10px",
+          marginTop: "15px",
         }}
         className="profile-text"
       >
@@ -106,7 +106,7 @@ function Profile({ player_name }: ProfileProps) {
             width: "100vw",
             maxWidth: "300px",
             borderRadius: "10px",
-            marginTop: "12px",
+            marginTop: "10px",
             padding: "7.5px",
             fontSize: "2.5vh",
             backgroundColor: "black",
