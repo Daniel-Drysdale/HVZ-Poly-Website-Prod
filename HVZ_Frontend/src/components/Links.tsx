@@ -4,7 +4,7 @@ import Youtube_Logo from "../assets/youtube_image.png";
 function Links() {
   return (
     <>
-      <div style={{ paddingTop: "40px" }}>
+      <div>
         <ul
           style={{
             display: "flex",
@@ -29,7 +29,7 @@ function Links() {
                     src={QR_Code}
                     alt="QR Code for Nerf-Tech Discord"
                     className="qr-code"
-                    style={{ width: "15vw" }}
+                    style={{ width: "10vw" }}
                   ></img>
                 </div>
               </div>
@@ -52,7 +52,7 @@ function Links() {
                     <img
                       src={Youtube_Logo}
                       alt={"Youtube Link"}
-                      style={{ width: "30vw" }}
+                      style={{ width: "20vw" }}
                     />
                   </a>
                 </div>
@@ -77,7 +77,7 @@ function Links() {
               height="50%"
               allowFullScreen
               src="https://www.youtube.com/embed/Y5nJJuNs3rY?si=s9Ai9mZW9_fyg2KC"
-              style={{ minWidth: "500px", width: "100%", height: "40vh" }}
+              style={{ width: "40vw", height: "40vh" }}
             ></iframe>
           </div>
         </div>

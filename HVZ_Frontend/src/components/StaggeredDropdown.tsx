@@ -11,14 +11,7 @@ const StaggeredDropDown = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div
-      style={{
-        marginTop: "15px",
-        width: "10px",
-        float: "right",
-        marginRight: "90px",
-      }}
-    >
+    <div style={{ marginTop: "15px" }}>
       <motion.div
         animate={open ? "open" : "closed"}
         className="position-relative"
@@ -35,8 +28,8 @@ const StaggeredDropDown = () => {
           variants={wrapperVariants}
           className="list-unstyled bg-white border rounded shadow position-absolute mt-2 p-2"
           style={{
-            minWidth: "180px",
-            right: "-50px",
+            minWidth: "40px",
+            right: "15px",
 
             transform: "translateX(25%)",
             zIndex: 1000,

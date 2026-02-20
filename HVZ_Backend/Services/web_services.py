@@ -50,7 +50,7 @@ class Player_Badge:
 def player_list(request):
     if request.method == "GET":
         
-        database_url = API_BASE_URL + "/v2/weblite/HVZ_POLY/Player_Data"
+        database_url = API_BASE_URL + "/v2/functions/player_list"
         headers = {
                 'Authorization': 'Bearer ' + API_KEY, 
           
@@ -59,12 +59,12 @@ def player_list(request):
         database_response = requests.get(database_url, headers=headers)
         print("Database GET request status: ", database_response.status_code)
 
-        player_data = database_response.json().get("data", [])
+        players = database_response.json().get("data", [])
             
             
             
 
-        return JsonResponse(player_data, safe=False)
+        return JsonResponse(players, safe=False)
     
 
 
@@ -132,21 +132,9 @@ def mvz(request):
          
          
      return JsonResponse("Invalid Request", status = 400)
+         
+         
 
-@csrf_exempt
-def searchPlayer(request):
-    if (request.method == "GET"):
-          searchName = str(request.GET.get("name", ""))
-          
-          database_url = API_BASE_URL + f'/v2/functions/search_player?query={searchName}'
-          headers = {
-                'Authorization': 'Bearer '+ API_KEY, 
-            }
-          database_response = requests.get(database_url, headers=headers)
-          return JsonResponse(database_response.json(), status = 200, safe = False)
-         
-         
-    return JsonResponse("Invalid Request", status = 400)
 
 @csrf_exempt
 def get_badge_list(request): #creates a player after taking in a request from a mod
@@ -226,6 +214,35 @@ def give_badge(request): #Gives badge to player
        
 
     return JsonResponse({"Invalid Request" : 405})
+
+
+@csrf_exempt
+def get_player_profile(request):
+    if request.method != "GET":
+        return JsonResponse({"error": "Invalid Request"}, status=405)
+
+    player_name = str(request.GET.get("name", ""))
+
+    database_url = f"{API_BASE_URL}/v2/functions/profile"
+
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+    }
+
+    try:
+        database_response = requests.get(database_url, headers=headers,  params={"player_name": player_name})
+
+        try:
+            body = database_response.json()
+        except Exception:
+            body = {"raw": database_response.text}
+            
+
+            
+        return JsonResponse(body, safe=False, status=database_response.status_code)
+
+    except requests.RequestException as e:
+        return JsonResponse({"error": "Upstream request failed", "detail": str(e)}, status=502)
  
 # @csrf_exempt
 # def infection_map(request): 

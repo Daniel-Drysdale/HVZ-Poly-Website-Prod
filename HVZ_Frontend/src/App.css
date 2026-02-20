@@ -4,6 +4,33 @@ html {
   margin: 0;
 }
 
+.app-root {
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .center-div {
   max-width: fit-content;
   margin-left: auto;
@@ -67,34 +94,49 @@ html {
   background-color: rgb(44, 44, 44);
 }
 
-.table-success-deep {
-  background-color: #006400;
-  color: white !important;
-}
-
-.table-danger-deep {
-  background-color: #8b0000;
-  color: white !important;
-}
-
-table.table tbody tr.table-success-deep {
-  background-color: #005600 !important;
-  color: white !important;
-}
-
-table.table tbody tr.table-danger-deep {
-  background-color: #7e0000 !important;
-  color: white !important;
-}
-
 .text-table {
   font-size: 2vh;
-
   font-family: monospace;
 }
 
-.white {
+.profile-text {
   color: white;
+  font-family: monospace;
+}
+
+.profile-zombie {
+  padding: 5px;
+  background-color: #1ca500;
+  box-shadow: 0px 0px 15px 0px #00ff33;
+}
+
+.profile-human {
+  padding: 5px;
+  background-color: #eb4600;
+  box-shadow: 0px 0px 15px 0px #ec2d02;
+}
+
+.profile-oz {
+  padding: 5px;
+  background-color: rgb(242, 247, 0);
+  box-shadow: 0px 0px 15px 0px #d9ff00;
+}
+
+.profile-mod {
+  padding: 5px;
+  background-color: rgb(0, 225, 255);
+  box-shadow: 0px 0px 15px 0px #00a2ff;
+}
+
+.profile-cam-chair {
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 15px 0px #e8e8e8;
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
 }
 
 .itemsButton {
@@ -120,4 +162,23 @@ table.table tbody tr.table-danger-deep {
   --bs-btn-active-border-color: #1e766b;
 
   --bs-btn-color: white;
+}
+
+.tooltip-inner {
+  background-color: #ffffff !important; /* background */
+  color: #000000 !important; /* text */
+  border: 1px solid #000000;
+  font-family: monospace;
+  font-size: small;
+  box-shadow: 0px 0px 15px 0px #ffffff;
+}
+
+.tooltip {
+  --bs-tooltip-opacity: 1;
+}
+
+/* arrow color */
+.tooltip .tooltip-arrow::before {
+  border-top-color: #1b1b1b !important;
+  border-bottom-color: #ffffff !important;
 }

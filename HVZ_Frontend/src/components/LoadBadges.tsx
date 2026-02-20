@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-
-export type Badge = {
-  id: number;
-  name: string;
-  image: string;
-};
+import { Badge } from "./CustomTypes";
 
 const LoadBadges = () => {
   const [badges, setBadges] = useState<Badge[]>([]);
@@ -26,11 +21,11 @@ const LoadBadges = () => {
         const formatted: Badge[] = backendData.data.map((badge: any) => ({
           id: Number(badge.id),
           name: String(badge.name ?? ""),
+          description: String(badge.description ?? ""),
           image: String(badge.image ?? ""),
         }));
 
         setBadges(formatted);
-        console.log(formatted);
       } catch (err) {
         console.log(err);
       }

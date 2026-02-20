@@ -58,11 +58,11 @@ const Home = () => {
   const MVZ_List = MVZ;
 
   return (
-    <div>
+    <div style={{ marginTop: "20px" }}>
       <center>
         <div
           className="row justify-content-center"
-          style={{ paddingTop: "100px", marginInline: "10%" }}
+          style={{ marginInline: "10%" }}
         >
           <div className="col-auto position-relative text-center">
             <img
