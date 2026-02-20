@@ -165,7 +165,7 @@ function PlayerTable() {
                 <td style={{ maxWidth: "200px", maxHeight: "100px" }}>
                   <div
                     style={{
-                      marginTop: "1.vh",
+                      marginTop: "1.5vh",
                       marginBottom: "auto",
                       justifyContent: "center",
                     }}
