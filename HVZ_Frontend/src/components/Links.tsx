@@ -9,7 +9,6 @@ function Links() {
           style={{
             display: "flex",
             listStyleType: "none",
-            paddingTop: "45px",
           }}
         >
           <div className="col">
@@ -77,7 +76,12 @@ function Links() {
               height="50%"
               allowFullScreen
               src="https://www.youtube.com/embed/Y5nJJuNs3rY?si=s9Ai9mZW9_fyg2KC"
-              style={{ width: "40vw", height: "40vh" }}
+              style={{
+                width: "40vw",
+                maxWidth: "100%",
+                maxHeight: "40%",
+                height: "40vh",
+              }}
             ></iframe>
           </div>
         </div>
