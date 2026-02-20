@@ -33,6 +33,7 @@ function DisplayBadges({ badges = [], player_badges = [] }: Props) {
       {badges.map((b) =>
         owned.has(b.id) ? (
           <img
+            className="badge-glow"
             key={b.id}
             src={b.image}
             alt={b.name}
@@ -42,6 +43,8 @@ function DisplayBadges({ badges = [], player_badges = [] }: Props) {
             style={{
               maxWidth: "35px",
               width: "5vw",
+              marginLeft: "5px",
+              marginRight: "5px",
               objectFit: "contain",
               cursor: "pointer",
             }}

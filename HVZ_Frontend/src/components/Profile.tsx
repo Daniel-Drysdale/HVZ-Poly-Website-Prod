@@ -101,52 +101,30 @@ function Profile({ player_name }: ProfileProps) {
         className="profile-text"
       >
         <span
-          className={StatusBackgroundColor(player.status)}
+          className={`profile-element ${StatusBackgroundColor(player.status)}`}
           style={{
-            width: "100vw",
-            maxWidth: "300px",
-            borderRadius: "10px",
-            marginTop: "10px",
-            padding: "7.5px",
+            padding: "10px",
+            marginTop: "30px",
             fontSize: "2.5vh",
-            backgroundColor: "black",
           }}
         >
           {player.name}
         </span>
         <div
           className="row justify-content-center g-1"
-          style={{ marginTop: "20px" }}
+          style={{ marginTop: "15px" }}
         >
           <div
-            className={`col auto ${StatusBackgroundColor(player.status)}`}
-            style={{
-              backgroundColor: "black",
-              fontSize: "2vh",
-              borderRadius: "10px",
-              marginTop: "10px",
-              marginRight: "5px",
-              maxWidth: "220px",
-              minWidth: "200px",
-            }}
+            className={`profile-element-row col auto ${StatusBackgroundColor(player.status)}`}
           >
-            <div style={{}}>
+            <div>
               <u>Player Status</u>
             </div>
             <span>{StatusName(player.status)}</span>
           </div>
 
           <div
-            className={`col auto ${StatusBackgroundColor(player.status)}`}
-            style={{
-              backgroundColor: "black",
-              borderRadius: "10px",
-              fontSize: "2vh",
-              marginTop: "10px",
-              marginLeft: "5px",
-              maxWidth: "220px",
-              minWidth: "200px",
-            }}
+            className={`profile-element-row col auto ${StatusBackgroundColor(player.status)}`}
           >
             <div>
               <u>Number of Tags</u>
@@ -158,12 +136,10 @@ function Profile({ player_name }: ProfileProps) {
         </div>
         <div className="center-div" style={{ borderRadius: "10px" }}>
           <div
-            className={StatusBackgroundColor(player.status)}
+            className={`profile-element ${StatusBackgroundColor(player.status)}`}
             style={{
-              marginTop: "5vh",
-              backgroundColor: "black",
-              width: "40vw",
-              borderRadius: "10px",
+              minWidth: "50px",
+              width: "50vh",
             }}
           >
             <u>Badges </u>
@@ -177,16 +153,23 @@ function Profile({ player_name }: ProfileProps) {
         </div>
         <div className="center-div">
           <div
-            className={StatusBackgroundColor(player.status)}
-            style={{
-              marginTop: "5vh",
-              backgroundColor: "black",
-              width: "40vw",
-              borderRadius: "10px",
-            }}
+            className={`profile-element ${StatusBackgroundColor(player.status)}`}
+            style={{ width: "40vh" }}
           >
             <u>Tagged: </u>
-            <div style={{ marginTop: "10px" }}>{player.named_tags}</div>
+            <div
+              style={{
+                fontSize: "1.5vh",
+                marginTop: "5px",
+                marginBottom: "px",
+              }}
+            >
+              {player.named_tags === "" ? (
+                <>No tags currently</>
+              ) : (
+                <>{player.named_tags}</>
+              )}
+            </div>
           </div>
         </div>
       </div>
