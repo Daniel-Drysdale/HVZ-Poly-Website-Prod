@@ -11,7 +11,8 @@ from collections import deque
 @dataclass
 class badge:
     name:str
-    badge:str
+    description:str
+    image:str
     
 @dataclass
 class player:
@@ -161,12 +162,12 @@ def badge_creation(request): #creates a player after taking in a request from a 
     if request.method == "POST":
         try:
             incoming_data = json.loads(request.body)
-            
-            print(incoming_data["id"])
 
             badge_data = badge(
                 name = incoming_data['name'],
+                description = incoming_data['description'],
                 image = incoming_data['image'],
+                
             )
             
             post_data = asdict(badge_data)
@@ -177,7 +178,7 @@ def badge_creation(request): #creates a player after taking in a request from a 
            
             headers = {'Authorization': 'Bearer '+ API_KEY}
             
-            database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/Badge", json = post_data , headers=headers)
+            database_post = requests.post(API_BASE_URL + "/v2/weblite/HVZ_POLY/Badges", json = post_data , headers=headers)
             
             return JsonResponse({"status": database_post.status_code})
 
