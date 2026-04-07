@@ -153,9 +153,32 @@ def get_badge_list(request): #creates a player after taking in a request from a 
            return JsonResponse(database_response.json(), status = 200, safe = False)
             
         except:
-            return JsonResponse({"Error" : "Error trying to send data to database", "status" : 400})
+            return JsonResponse({"Error" : "Error trying to get data from database", "status" : 400})
 
     return JsonResponse({"Invalid Request" : 405})
+
+
+#created to stop sending the bot unnecessary data when getting badge data for mods to review with a command
+@csrf_exempt
+def get_bot_badge_list(request): #creates a player after taking in a request from a mod
+    if request.method == "GET":
+        try:
+          
+           database_url = API_BASE_URL + "/v2/functions/bot_badge_list"
+          
+           headers = {
+                'Authorization': 'Bearer '+ API_KEY, 
+           }
+           
+           database_response = requests.get(database_url, headers=headers)
+           
+           return JsonResponse(database_response.json(), status = 200, safe = False)
+            
+        except:
+            return JsonResponse({"Error" : "Error trying to get data from database", "status" : 400})
+
+    return JsonResponse({"Invalid Request" : 405})
+
 
 @csrf_exempt
 def badge_creation(request): #creates a player after taking in a request from a mod
