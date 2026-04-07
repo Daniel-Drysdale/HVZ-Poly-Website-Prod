@@ -66,6 +66,7 @@ def player_list(request):
             
 
         return JsonResponse(players, safe=False)
+    return JsonResponse({"Bad Request" : 400})
     
 
 
@@ -231,17 +232,29 @@ def give_badge(request): #Gives badge to player
             database_post = requests.post(API_BASE_URL + "/v2/functions/give_badge", json = post_data , headers=headers)
             
             return JsonResponse({"status": database_post.status_code})
-        
-            
-       
-
-       
 
     return JsonResponse({"Invalid Request" : 405})
 
+@csrf_exempt
+def remove_badge(request): #Removes a badge from the database and any badges players have that are that badge
+    if request.method == "POST":
+ 
+            incoming_data = json.loads(request.body)
+            
+            badge_name=incoming_data["badge_name"]
+            
+            headers = {'Authorization': 'Bearer '+ API_KEY}
+            
+            post_data = {"badge_name":badge_name}
+            
+            database_post = requests.post(API_BASE_URL + "/v2/functions/remove_badge", json = post_data , headers=headers)
+            
+            return JsonResponse({"status": database_post.status_code})
+        
+    return JsonResponse({"Invalid Request" : 405})
 
 @csrf_exempt
-def get_player_profile(request):
+def get_player_profile(request): #gets player profiles from the database
     if request.method != "GET":
         return JsonResponse({"error": "Invalid Request"}, status=405)
 
