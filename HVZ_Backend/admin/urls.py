@@ -12,6 +12,7 @@ urlpatterns = [
     path('v2/api/mvz/', web_services.mvz),
     path('v2/api/badge_creation/', web_services.badge_creation),
     path('v2/api/get_badge_list/', web_services.get_badge_list),
+    path('v2/api/get_bot_badge_list/', web_services.get_bot_badge_list),
     path('v2/api/give_badge/', web_services.give_badge),
     path('v2/api/players/', web_services.player_list),
     path('v2/api/get_player_profile/', web_services.get_player_profile),
