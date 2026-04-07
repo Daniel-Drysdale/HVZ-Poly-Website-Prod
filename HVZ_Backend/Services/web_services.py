@@ -181,7 +181,7 @@ def get_bot_badge_list(request): #creates a player after taking in a request fro
 
 
 @csrf_exempt
-def badge_creation(request): #creates a player after taking in a request from a mod
+def badge_creation(request): #creates a badge after getting mod data
     if request.method == "POST":
         try:
             incoming_data = json.loads(request.body)
