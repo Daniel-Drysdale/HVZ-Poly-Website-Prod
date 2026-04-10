@@ -79,8 +79,7 @@ function Links() {
               style={{
                 width: "40vw",
                 maxWidth: "100%",
-                maxHeight: "40%",
-                height: "40vh",
+                height: "30vw",
               }}
             ></iframe>
           </div>
