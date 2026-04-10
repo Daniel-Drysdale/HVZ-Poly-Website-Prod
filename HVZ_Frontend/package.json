@@ -11,7 +11,6 @@
     "preview": "vite preview --port 5173"
   },
   "dependencies": {
-    "@esbuild/darwin-arm64": "^0.28.0",
     "@popperjs/core": "^2.11.8",
     "@react-pdf/renderer": "^3.4.4",
     "@types/d3": "^7.4.3",
@@ -38,6 +37,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "esbuild": "^0.28.0",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
