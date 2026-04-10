@@ -1,11 +1,30 @@
-import Rules_Slides from "../assets/rules.pdf"; // Adjust the path as necessary
+import Rules_Slides from "../assets/rules.pdf";
 
 const Rules = () => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+  const openRules = () => {
+    window.open(Rules_Slides, "_blank");
+  };
+
   if (isMobile) {
-    window.location.href = Rules_Slides;
-    return null;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100vh",
+          padding: "20px",
+          textAlign: "center",
+        }}
+      >
+        <button className="btn btn-primary" onClick={openRules}>
+          Open Rules PDF
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -25,15 +44,8 @@ const Rules = () => {
         width="100%"
         height="100%"
         style={{ border: "none" }}
-      >
-        <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
-          Error, Could not load rules slides!
-        </p>
-
-        <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
-          Desktop is more stable, try there.
-        </p>
-      </iframe>
+        title="Rules PDF"
+      />
     </div>
   );
 };
