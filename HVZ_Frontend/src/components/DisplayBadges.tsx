@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Tooltip } from "bootstrap";
+import Tooltip from "bootstrap/js/dist/tooltip";
 import type { Badge } from "./CustomTypes";
 
 type Props = {
@@ -15,13 +15,18 @@ function DisplayBadges({ badges = [], player_badges = [] }: Props) {
     const root = containerRef.current;
     if (!root) return;
 
-    const tooltipTriggerList = Array.from(
+    const tooltipElements = Array.from(
       root.querySelectorAll<HTMLElement>('[data-bs-toggle="tooltip"]'),
     );
 
-    const tooltips: any[] = tooltipTriggerList.map(
-      (el) => new (Tooltip as any)(el),
-    );
+    const tooltips = tooltipElements.map((el) => {
+      Tooltip.getInstance(el)?.dispose();
+
+      return new Tooltip(el, {
+        placement: "top",
+        trigger: "hover focus",
+      });
+    });
 
     return () => {
       tooltips.forEach((t) => t.dispose());
@@ -29,17 +34,19 @@ function DisplayBadges({ badges = [], player_badges = [] }: Props) {
   }, [badges, player_badges]);
 
   return (
-    <div ref={containerRef} style={{ gap: "6px", flexWrap: "wrap" }}>
+    <div
+      ref={containerRef}
+      style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}
+    >
       {badges.map((b) =>
         owned.has(b.id) ? (
           <img
-            className="badge-glow"
             key={b.id}
+            className="badge-glow"
             src={b.image}
             alt={b.name}
+            title={b.description ?? ""}
             data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title={b.description}
             style={{
               maxWidth: "35px",
               width: "5vw",
