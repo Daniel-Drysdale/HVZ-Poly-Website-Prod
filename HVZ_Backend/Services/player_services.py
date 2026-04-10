@@ -134,7 +134,7 @@ def wipe(request): #wipes the data from the database - use after every hvz
         
         wipe_password = post_data["password"]
         
-        if wipe_password != WIPE_PASSWORD:
+        if str(wipe_password) != str(WIPE_PASSWORD):
               return JsonResponse({"Invalid Password" : 405})
             
         headers = {'Authorization': 'Bearer '+ API_KEY}
