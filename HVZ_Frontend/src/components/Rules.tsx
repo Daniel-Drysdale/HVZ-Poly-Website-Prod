@@ -1,6 +1,13 @@
 import Rules_Slides from "../assets/rules.pdf"; // Adjust the path as necessary
 
 const Rules = () => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    window.location.href = Rules_Slides;
+    return null;
+  }
+
   return (
     <div
       style={{
