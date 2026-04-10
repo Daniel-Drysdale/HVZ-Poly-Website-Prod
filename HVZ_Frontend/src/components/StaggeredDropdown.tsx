@@ -3,7 +3,12 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { IconType } from "react-icons";
 import Menu from "../assets/Menu.png";
 import { useNavigate } from "react-router-dom";
-import { BsFillPeopleFill, BsLink, BsBookFill } from "react-icons/bs";
+import {
+  BsFillPeopleFill,
+  BsLink,
+  BsBookFill,
+  BsMapFill,
+} from "react-icons/bs";
 import { AiFillHome } from "react-icons/ai";
 
 const StaggeredDropDown = () => {
@@ -48,6 +53,13 @@ const StaggeredDropDown = () => {
             Icon={BsFillPeopleFill}
             text="Players"
             route="players"
+          />
+          <Option
+            setOpen={setOpen}
+            Icon={BsMapFill}
+            text="Map"
+            route="map"
+            navigate={navigate}
           />
           <Option
             setOpen={setOpen}

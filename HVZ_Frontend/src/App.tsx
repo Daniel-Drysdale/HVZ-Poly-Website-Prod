@@ -18,6 +18,7 @@ import PlayerTable from "./components/PlayerTable.tsx";
 import Rules from "./components/Rules.tsx";
 import Links from "./components/Links.tsx";
 import Profile from "./components/Profile.tsx";
+import Map from "./components/Map.tsx";
 
 //Wrapper component to extract player_name from URL params for profile page
 function ProfileWrapper() {
@@ -49,6 +50,7 @@ function App() {
             <Route path="/players" element={<PlayerTable />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/links" element={<Links />} />
+            <Route path="/map" element={<Map />} />
             <Route path="/profile/:player_name" element={<ProfileWrapper />} />
           </Routes>
         </main>

@@ -11,6 +11,7 @@
     "preview": "vite preview --port 5173"
   },
   "dependencies": {
+    "@esbuild/darwin-arm64": "^0.28.0",
     "@popperjs/core": "^2.11.8",
     "@react-pdf/renderer": "^3.4.4",
     "@types/d3": "^7.4.3",
