@@ -13,21 +13,20 @@ const Rules = () => {
         marginTop: "-30px",
       }}
     >
-      <object
-        data={Rules_Slides}
-        type="application/pdf"
+      <iframe
+        src={Rules_Slides}
         width="100%"
         height="100%"
         style={{ border: "none" }}
       >
         <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
-          Cannot load rule slides on mobile
+          Error, Could not load rules slides!
         </p>
 
         <p className="center-div" style={{ fontSize: "5vw", color: "white" }}>
-          Please use a Desktop to view the Rules
+          Desktop is more stable, try there.
         </p>
-      </object>
+      </iframe>
     </div>
   );
 };
