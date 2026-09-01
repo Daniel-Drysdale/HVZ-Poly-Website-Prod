@@ -4,7 +4,7 @@ const Map = () => {
   return (
     <div className="center-div" style={{ paddingTop: "20px" }}>
       <center>
-        <h3 className="overlay-text">[SPRING 2026]</h3>
+        <h3 className="overlay-text">[FALL 2026]</h3>
         <div style={{ paddingTop: "20px" }}>
           <img
             style={{

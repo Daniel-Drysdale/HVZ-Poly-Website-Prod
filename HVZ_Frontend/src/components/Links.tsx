@@ -75,7 +75,7 @@ function Links() {
               width="50%"
               height="50%"
               allowFullScreen
-              src="https://www.youtube.com/embed/8plwv25NYRo?si=lb9dIz55Aq7B_G8i"
+              src="https://www.youtube.com/embed/3iDADSOoCiM?si=slOITOimJnEurPC0"
               style={{
                 width: "40vw",
                 maxWidth: "100%",
